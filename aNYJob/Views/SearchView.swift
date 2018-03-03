@@ -13,7 +13,6 @@ class SearchView: UIView {
     
     lazy public var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        //searchBar.tintColor = .white
         searchBar.barTintColor = .white
         return searchBar
     }()
