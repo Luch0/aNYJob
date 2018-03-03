@@ -9,16 +9,40 @@
 import UIKit
 
 class JobTableViewCell: UITableViewCell {
+    
+    lazy public var jobTitleLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    lazy public var salaryLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
     }
+    
+    private func commonInit() {
+        backgroundColor = .white
+        setupViews()
+    }
+    
+}
 
+extension JobTableViewCell {
+    private func setupViews() {
+        
+    }
+    
+    
 }
