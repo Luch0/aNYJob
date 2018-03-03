@@ -1,5 +1,5 @@
 //
-//  JobsAPIClient.swift
+//  BaseSalaryAPIClient.swift
 //  aNYJob
 //
 //  Created by Luis Calle on 3/3/18.
@@ -8,22 +8,22 @@
 
 import Foundation
 
-class JobsAPIClient {
+class BaseSalaryAPIClient {
     
     private init() { }
-    static let manager = JobsAPIClient()
+    static let manager = BaseSalaryAPIClient()
     
-    func getJobs(filename: String, type: String) -> [Job]? {
-        var jobs: [Job]? = nil
+    func getBaseSalaries(filename: String, type: String) -> [BaseSalary]? {
+        var baseSalaries: [BaseSalary]? = nil
         if let pathname = Bundle.main.path(forResource: filename, ofType: type) {
             guard let jsonData = FileManager.default.contents(atPath: pathname) else { return nil }
             do {
                 let decoder = JSONDecoder()
-                jobs = try decoder.decode([Job].self, from: jsonData)
+                baseSalaries = try decoder.decode([BaseSalary].self, from: jsonData)
             } catch {
                 print("Unable to read json file: \(error.localizedDescription)")
             }
         }
-        return jobs
+        return baseSalaries
     }
 }

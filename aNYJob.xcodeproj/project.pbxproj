@@ -44,6 +44,8 @@
 		E2B1F3D7204B15D00037394F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D6204B15D00037394F /* TestView.swift */; };
 		E2B1F3DA204B16610037394F /* openJobsNYC.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B1F3D8204B16600037394F /* openJobsNYC.json */; };
 		E2B1F3DB204B16610037394F /* nycEmployeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B1F3D9204B16610037394F /* nycEmployeeData.json */; };
+		E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E0204B2A070037394F /* BaseSalary.swift */; };
+		E2B1F3E3204B2B150037394F /* BaseSalaryAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */; };
 		FCD20F9A70AA9AC9D64BE6C6 /* Pods_aNYJobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE55452B95D1560385EDD1C4 /* Pods_aNYJobTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,8 @@
 		E2B1F3D6204B15D00037394F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		E2B1F3D8204B16600037394F /* openJobsNYC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = openJobsNYC.json; sourceTree = "<group>"; };
 		E2B1F3D9204B16610037394F /* nycEmployeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nycEmployeeData.json; sourceTree = "<group>"; };
+		E2B1F3E0204B2A070037394F /* BaseSalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalary.swift; sourceTree = "<group>"; };
+		E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalaryAPIClient.swift; sourceTree = "<group>"; };
 		F719CBE940ECA0FAFD9F3E22 /* Pods_aNYJobUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJobUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +209,8 @@
 				DB3814DC204B0FED00F15E3D /* UserProfile.swift */,
 				DB381508204B22AF00F15E3D /* Job.swift */,
 				DB381509204B22AF00F15E3D /* JobsAPIClient.swift */,
+				E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */,
+				E2B1F3E0204B2A070037394F /* BaseSalary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,8 +258,6 @@
 		E2596332204B0138009E0BD2 = {
 			isa = PBXGroup;
 			children = (
-				E2B1F3D9204B16610037394F /* nycEmployeeData.json */,
-				E2B1F3D8204B16600037394F /* openJobsNYC.json */,
 				E259633D204B0138009E0BD2 /* aNYJob */,
 				E2596355204B0138009E0BD2 /* aNYJobTests */,
 				E2596360204B0138009E0BD2 /* aNYJobUITests */,
@@ -276,6 +280,8 @@
 		E259633D204B0138009E0BD2 /* aNYJob */ = {
 			isa = PBXGroup;
 			children = (
+				E2B1F3D9204B16610037394F /* nycEmployeeData.json */,
+				E2B1F3D8204B16600037394F /* openJobsNYC.json */,
 				DB381505204B125000F15E3D /* Models */,
 				DBADFFB3204B0EC000644A56 /* Services */,
 				DBADFFB2204B0EB200644A56 /* ViewControllers */,
@@ -625,6 +631,7 @@
 				DBAEA3E0204B2479007870B3 /* AppDelegate.swift in Sources */,
 				81248076204B173100E244AC /* SearchViewController.swift in Sources */,
 				DB38150B204B22AF00F15E3D /* JobsAPIClient.swift in Sources */,
+				E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
 				8124807C204B19C500E244AC /* JobDetailView.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
@@ -644,6 +651,7 @@
 				DB3814E2204B100600F15E3D /* EmptyStateView.swift in Sources */,
 				DB3814F3204B102600F15E3D /* StyleSheet.swift in Sources */,
 				DB3814E6204B101200F15E3D /* CreateAccountVC.swift in Sources */,
+				E2B1F3E3204B2B150037394F /* BaseSalaryAPIClient.swift in Sources */,
 				DB3814E1204B100600F15E3D /* CreateAccountView.swift in Sources */,
 				DB3814DD204B0FED00F15E3D /* UserProfile.swift in Sources */,
 				8124807A204B189000E244AC /* JobTableViewCell.swift in Sources */,
