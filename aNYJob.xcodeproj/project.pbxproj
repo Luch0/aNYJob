@@ -611,14 +611,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				E2B1F3D7204B15D00037394F /* TestView.swift in Sources */,
 				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
 				E2B1F3D1204B14A60037394F /* JobsAPIClient.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
 				E2B1F3CF204B126E0037394F /* Job.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
-=======
 				DB3814EE204B102600F15E3D /* Alert.swift in Sources */,
 				DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */,
 				DB3814FF204B121D00F15E3D /* DatabaseService+Get.swift in Sources */,
@@ -628,7 +626,6 @@
 				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
 				DB381504204B123000F15E3D /* StorageService.swift in Sources */,
 				DB3814E7204B101200F15E3D /* LoginVC.swift in Sources */,
->>>>>>> 62611c9ac979efcb167e55f6a936f9be9342d83e
 				E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */,
 				DB3814F6204B11F600F15E3D /* AuthUserService.swift in Sources */,
 				DB381500204B121D00F15E3D /* DatabaseServiceDelegate.swift in Sources */,
