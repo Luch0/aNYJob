@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81248076204B173100E244AC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248075204B173100E244AC /* SearchViewController.swift */; };
+		81248078204B174B00E244AC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248077204B174B00E244AC /* SearchView.swift */; };
+		8124807A204B189000E244AC /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248079204B189000E244AC /* JobTableViewCell.swift */; };
+		8124807C204B19C500E244AC /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124807B204B19C500E244AC /* JobDetailView.swift */; };
+		8124807E204B1D6700E244AC /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124807D204B1D6700E244AC /* JobDetailViewController.swift */; };
 		B33606E4B959481D59662D47 /* Pods_aNYJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531556CA4FC8AB018E009546 /* Pods_aNYJob.framework */; };
 		CE37BB6C042AA12D833BDA97 /* Pods_aNYJobUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F719CBE940ECA0FAFD9F3E22 /* Pods_aNYJobUITests.framework */; };
 		E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259633E204B0138009E0BD2 /* AppDelegate.swift */; };
@@ -49,6 +54,11 @@
 		4A099B765742913CCA3921BA /* Pods-aNYJobTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJobTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJobTests/Pods-aNYJobTests.release.xcconfig"; sourceTree = "<group>"; };
 		531556CA4FC8AB018E009546 /* Pods_aNYJob.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJob.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		609EE93AFE80A5BD0D888F00 /* Pods-aNYJob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJob.release.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJob/Pods-aNYJob.release.xcconfig"; sourceTree = "<group>"; };
+		81248075204B173100E244AC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		81248077204B174B00E244AC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		81248079204B189000E244AC /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		8124807B204B19C500E244AC /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
+		8124807D204B1D6700E244AC /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		90120932C455A163A43A761F /* Pods-aNYJobTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJobTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJobTests/Pods-aNYJobTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE55452B95D1560385EDD1C4 /* Pods_aNYJobTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJobTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259633B204B0138009E0BD2 /* aNYJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aNYJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				E2B1F3D6204B15D00037394F /* TestView.swift */,
+				81248077204B174B00E244AC /* SearchView.swift */,
+				8124807B204B19C500E244AC /* JobDetailView.swift */,
+				81248079204B189000E244AC /* JobTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				E2B1F3D4204B15BF0037394F /* TestViewController.swift */,
+				81248075204B173100E244AC /* SearchViewController.swift */,
+				8124807D204B1D6700E244AC /* JobDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -530,12 +545,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B1F3D7204B15D00037394F /* TestView.swift in Sources */,
+				8124807E204B1D6700E244AC /* JobDetailViewController.swift in Sources */,
+				81248078204B174B00E244AC /* SearchView.swift in Sources */,
 				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
+				81248076204B173100E244AC /* SearchViewController.swift in Sources */,
 				E2B1F3D1204B14A60037394F /* JobsAPIClient.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
+				8124807C204B19C500E244AC /* JobDetailView.swift in Sources */,
 				E2B1F3CF204B126E0037394F /* Job.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
 				E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */,
+				8124807A204B189000E244AC /* JobTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
