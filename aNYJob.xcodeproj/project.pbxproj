@@ -31,14 +31,14 @@
 		DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814FD204B121D00F15E3D /* DatabaseService+Add.swift */; };
 		DB381504204B123000F15E3D /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381503204B123000F15E3D /* StorageService.swift */; };
 		DB381507204B17B600F15E3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB381506204B17B600F15E3D /* GoogleService-Info.plist */; };
-		E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259633E204B0138009E0BD2 /* AppDelegate.swift */; };
+		DB38150A204B22AF00F15E3D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381508204B22AF00F15E3D /* Job.swift */; };
+		DB38150B204B22AF00F15E3D /* JobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381509204B22AF00F15E3D /* JobsAPIClient.swift */; };
+		DBAEA3E0204B2479007870B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259633E204B0138009E0BD2 /* AppDelegate.swift */; };
 		E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2596345204B0138009E0BD2 /* aNYJob.xcdatamodeld */; };
 		E2596349204B0138009E0BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2596348204B0138009E0BD2 /* Assets.xcassets */; };
 		E259634C204B0138009E0BD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E259634A204B0138009E0BD2 /* LaunchScreen.storyboard */; };
 		E2596357204B0138009E0BD2 /* aNYJobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2596356204B0138009E0BD2 /* aNYJobTests.swift */; };
 		E2596362204B0138009E0BD2 /* aNYJobUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2596361204B0138009E0BD2 /* aNYJobUITests.swift */; };
-		E2B1F3CF204B126E0037394F /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3CE204B126E0037394F /* Job.swift */; };
-		E2B1F3D1204B14A60037394F /* JobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D0204B14A60037394F /* JobsAPIClient.swift */; };
 		E2B1F3D3204B15B00037394F /* testServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D2204B15B00037394F /* testServices.swift */; };
 		E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D4204B15BF0037394F /* TestViewController.swift */; };
 		E2B1F3D7204B15D00037394F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D6204B15D00037394F /* TestView.swift */; };
@@ -95,6 +95,8 @@
 		DB3814FD204B121D00F15E3D /* DatabaseService+Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Add.swift"; sourceTree = "<group>"; };
 		DB381503204B123000F15E3D /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		DB381506204B17B600F15E3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB381508204B22AF00F15E3D /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Job.swift; path = aNYJob/Models/Job.swift; sourceTree = SOURCE_ROOT; };
+		DB381509204B22AF00F15E3D /* JobsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobsAPIClient.swift; path = aNYJob/Models/JobsAPIClient.swift; sourceTree = SOURCE_ROOT; };
 		E259633B204B0138009E0BD2 /* aNYJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aNYJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259633E204B0138009E0BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2596346204B0138009E0BD2 /* aNYJob.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = aNYJob.xcdatamodel; sourceTree = "<group>"; };
@@ -107,8 +109,6 @@
 		E259635D204B0138009E0BD2 /* aNYJobUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aNYJobUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2596361204B0138009E0BD2 /* aNYJobUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aNYJobUITests.swift; sourceTree = "<group>"; };
 		E2596363204B0138009E0BD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2B1F3CE204B126E0037394F /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		E2B1F3D0204B14A60037394F /* JobsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsAPIClient.swift; sourceTree = "<group>"; };
 		E2B1F3D2204B15B00037394F /* testServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testServices.swift; sourceTree = "<group>"; };
 		E2B1F3D4204B15BF0037394F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E2B1F3D6204B15D00037394F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -171,8 +171,6 @@
 		DB3814F4204B11DA00F15E3D /* AuthUser */ = {
 			isa = PBXGroup;
 			children = (
-				E2B1F3CE204B126E0037394F /* Job.swift */,
-				E2B1F3D0204B14A60037394F /* JobsAPIClient.swift */,
 				DB3814F5204B11F600F15E3D /* AuthUserService.swift */,
 				DB3814F7204B11F900F15E3D /* AuthUserServiceDelegate.swift */,
 			);
@@ -205,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				DB3814DC204B0FED00F15E3D /* UserProfile.swift */,
+				DB381508204B22AF00F15E3D /* Job.swift */,
+				DB381509204B22AF00F15E3D /* JobsAPIClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,7 +238,6 @@
 		DBADFFB3204B0EC000644A56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-
 				E2B1F3D2204B15B00037394F /* testServices.swift */,
 				DB3814E8204B102600F15E3D /* Alert.swift */,
 				DB3814EC204B102600F15E3D /* NetworkConnectivity.swift */,
@@ -246,7 +245,6 @@
 				DB381502204B122500F15E3D /* Storage */,
 				DB3814F9204B120B00F15E3D /* Database */,
 				DB3814F4204B11DA00F15E3D /* AuthUser */,
-
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -582,8 +580,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-aNYJob/Pods-aNYJob-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -592,8 +588,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -628,12 +622,11 @@
 				E2B1F3D7204B15D00037394F /* TestView.swift in Sources */,
 				8124807E204B1D6700E244AC /* JobDetailViewController.swift in Sources */,
 				81248078204B174B00E244AC /* SearchView.swift in Sources */,
-				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
+				DBAEA3E0204B2479007870B3 /* AppDelegate.swift in Sources */,
 				81248076204B173100E244AC /* SearchViewController.swift in Sources */,
-				E2B1F3D1204B14A60037394F /* JobsAPIClient.swift in Sources */,
+				DB38150B204B22AF00F15E3D /* JobsAPIClient.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
 				8124807C204B19C500E244AC /* JobDetailView.swift in Sources */,
-				E2B1F3CF204B126E0037394F /* Job.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
 				DB3814EE204B102600F15E3D /* Alert.swift in Sources */,
 				DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */,
@@ -641,9 +634,9 @@
 				DB3814F2204B102600F15E3D /* NetworkConnectivity.swift in Sources */,
 				DB3814E3204B100600F15E3D /* LoginView.swift in Sources */,
 				DB3814F8204B11F900F15E3D /* AuthUserServiceDelegate.swift in Sources */,
-				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
 				DB381504204B123000F15E3D /* StorageService.swift in Sources */,
 				DB3814E7204B101200F15E3D /* LoginVC.swift in Sources */,
+				DB38150A204B22AF00F15E3D /* Job.swift in Sources */,
 				E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */,
 				DB3814F6204B11F600F15E3D /* AuthUserService.swift in Sources */,
 				DB381500204B121D00F15E3D /* DatabaseServiceDelegate.swift in Sources */,
