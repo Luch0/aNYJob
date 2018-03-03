@@ -26,4 +26,23 @@ class JobsAPIClient {
         }
         return jobs
     }
+    
+    func getOnlineJobs(with keyword: String, completionHandler: @escaping ([Job]) -> Void, errorHandler: @escaping (Error) -> Void) {
+        let fullUrl = "https://data.cityofnewyork.us/resource/swhp-yxa4.json?$where=business_title%20like%20%27%25\(keyword)%25%27"
+        guard let url = URL(string: fullUrl) else {
+            errorHandler(AppError.badUrl(str: fullUrl))
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        let completion: (Data) -> Void = {(data: Data) in
+            do {
+                let jobs = try JSONDecoder().decode([Job].self, from: data)
+                completionHandler(jobs)
+            }
+            catch {
+                errorHandler(AppError.couldNotParseJSON(rawError: error))
+            }
+        }
+        NetworkHelper.manager.performDataTask(with: urlRequest, completionHandler: completion, errorHandler: errorHandler)
+    }
 }
