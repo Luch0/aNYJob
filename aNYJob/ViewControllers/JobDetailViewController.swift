@@ -11,6 +11,7 @@ import UIKit
 class JobDetailViewController: UIViewController {
 
     let jobDetailView = JobDetailView()
+    let job: Job
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,41 +20,29 @@ class JobDetailViewController: UIViewController {
         jobDetailView.tableView.delegate = self
     }
     
+    init(job: Job) {
+        self.job = job
+        super.init(nibName: nil, bundle: nil)
+    }
     
-
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
 
 extension JobDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
-        default:
-            print("3")
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCellOne", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! JobDetailTableViewCell
+        cell.configureCell(job: job)
         return cell
     }
 }
 
 extension JobDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
-        default:
-            print("3")
-        }
-    }
+
 }
