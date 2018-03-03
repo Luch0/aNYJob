@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		B33606E4B959481D59662D47 /* Pods_aNYJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531556CA4FC8AB018E009546 /* Pods_aNYJob.framework */; };
 		CE37BB6C042AA12D833BDA97 /* Pods_aNYJobUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F719CBE940ECA0FAFD9F3E22 /* Pods_aNYJobUITests.framework */; };
+		DB3814DD204B0FED00F15E3D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814DC204B0FED00F15E3D /* UserProfile.swift */; };
+		DB3814E1204B100600F15E3D /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814DE204B100600F15E3D /* CreateAccountView.swift */; };
+		DB3814E2204B100600F15E3D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814DF204B100600F15E3D /* EmptyStateView.swift */; };
+		DB3814E3204B100600F15E3D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814E0204B100600F15E3D /* LoginView.swift */; };
+		DB3814E6204B101200F15E3D /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814E4204B101100F15E3D /* CreateAccountVC.swift */; };
+		DB3814E7204B101200F15E3D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814E5204B101200F15E3D /* LoginVC.swift */; };
+		DB3814EE204B102600F15E3D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814E8204B102600F15E3D /* Alert.swift */; };
+		DB3814F2204B102600F15E3D /* NetworkConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814EC204B102600F15E3D /* NetworkConnectivity.swift */; };
+		DB3814F3204B102600F15E3D /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814ED204B102600F15E3D /* StyleSheet.swift */; };
+		DB3814F6204B11F600F15E3D /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814F5204B11F600F15E3D /* AuthUserService.swift */; };
+		DB3814F8204B11F900F15E3D /* AuthUserServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814F7204B11F900F15E3D /* AuthUserServiceDelegate.swift */; };
+		DB3814FE204B121D00F15E3D /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814FA204B121D00F15E3D /* DatabaseService.swift */; };
+		DB3814FF204B121D00F15E3D /* DatabaseService+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814FB204B121D00F15E3D /* DatabaseService+Get.swift */; };
+		DB381500204B121D00F15E3D /* DatabaseServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814FC204B121D00F15E3D /* DatabaseServiceDelegate.swift */; };
+		DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3814FD204B121D00F15E3D /* DatabaseService+Add.swift */; };
+		DB381504204B123000F15E3D /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381503204B123000F15E3D /* StorageService.swift */; };
+		DB381507204B17B600F15E3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB381506204B17B600F15E3D /* GoogleService-Info.plist */; };
 		E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259633E204B0138009E0BD2 /* AppDelegate.swift */; };
 		E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2596345204B0138009E0BD2 /* aNYJob.xcdatamodeld */; };
 		E2596349204B0138009E0BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2596348204B0138009E0BD2 /* Assets.xcassets */; };
@@ -51,6 +68,23 @@
 		609EE93AFE80A5BD0D888F00 /* Pods-aNYJob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJob.release.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJob/Pods-aNYJob.release.xcconfig"; sourceTree = "<group>"; };
 		90120932C455A163A43A761F /* Pods-aNYJobTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJobTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJobTests/Pods-aNYJobTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE55452B95D1560385EDD1C4 /* Pods_aNYJobTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJobTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB3814DC204B0FED00F15E3D /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "aNYJob/New Group/UserProfile.swift"; sourceTree = SOURCE_ROOT; };
+		DB3814DE204B100600F15E3D /* CreateAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		DB3814DF204B100600F15E3D /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		DB3814E0204B100600F15E3D /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DB3814E4204B101100F15E3D /* CreateAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		DB3814E5204B101200F15E3D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		DB3814E8204B102600F15E3D /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DB3814EC204B102600F15E3D /* NetworkConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnectivity.swift; sourceTree = "<group>"; };
+		DB3814ED204B102600F15E3D /* StyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		DB3814F5204B11F600F15E3D /* AuthUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
+		DB3814F7204B11F900F15E3D /* AuthUserServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserServiceDelegate.swift; sourceTree = "<group>"; };
+		DB3814FA204B121D00F15E3D /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		DB3814FB204B121D00F15E3D /* DatabaseService+Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Get.swift"; sourceTree = "<group>"; };
+		DB3814FC204B121D00F15E3D /* DatabaseServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceDelegate.swift; sourceTree = "<group>"; };
+		DB3814FD204B121D00F15E3D /* DatabaseService+Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Add.swift"; sourceTree = "<group>"; };
+		DB381503204B123000F15E3D /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DB381506204B17B600F15E3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E259633B204B0138009E0BD2 /* aNYJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aNYJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259633E204B0138009E0BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2596346204B0138009E0BD2 /* aNYJob.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = aNYJob.xcdatamodel; sourceTree = "<group>"; };
@@ -124,11 +158,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DBADFFB0204B0E9600644A56 /* Models */ = {
+		DB3814F4204B11DA00F15E3D /* AuthUser */ = {
 			isa = PBXGroup;
 			children = (
 				E2B1F3CE204B126E0037394F /* Job.swift */,
 				E2B1F3D0204B14A60037394F /* JobsAPIClient.swift */,
+				DB3814F5204B11F600F15E3D /* AuthUserService.swift */,
+				DB3814F7204B11F900F15E3D /* AuthUserServiceDelegate.swift */,
+			);
+			name = AuthUser;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DB3814F9204B120B00F15E3D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				DB3814FA204B121D00F15E3D /* DatabaseService.swift */,
+				DB3814FD204B121D00F15E3D /* DatabaseService+Add.swift */,
+				DB3814FB204B121D00F15E3D /* DatabaseService+Get.swift */,
+				DB3814FC204B121D00F15E3D /* DatabaseServiceDelegate.swift */,
+			);
+			name = Database;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		DB381502204B122500F15E3D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				DB381503204B123000F15E3D /* StorageService.swift */,
+			);
+			name = Storage;
+			path = "New Group2";
+			sourceTree = "<group>";
+		};
+		DB381505204B125000F15E3D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB3814DC204B0FED00F15E3D /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				E2B1F3D6204B15D00037394F /* TestView.swift */,
+				DB3814DE204B100600F15E3D /* CreateAccountView.swift */,
+				DB3814DF204B100600F15E3D /* EmptyStateView.swift */,
+				DB3814E0204B100600F15E3D /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				E2B1F3D4204B15BF0037394F /* TestViewController.swift */,
+				DB3814E4204B101100F15E3D /* CreateAccountVC.swift */,
+				DB3814E5204B101200F15E3D /* LoginVC.swift */,
+
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,7 +224,15 @@
 		DBADFFB3204B0EC000644A56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+
 				E2B1F3D2204B15B00037394F /* testServices.swift */,
+				DB3814E8204B102600F15E3D /* Alert.swift */,
+				DB3814EC204B102600F15E3D /* NetworkConnectivity.swift */,
+				DB3814ED204B102600F15E3D /* StyleSheet.swift */,
+				DB381502204B122500F15E3D /* Storage */,
+				DB3814F9204B120B00F15E3D /* Database */,
+				DB3814F4204B11DA00F15E3D /* AuthUser */,
+
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -184,12 +264,13 @@
 		E259633D204B0138009E0BD2 /* aNYJob */ = {
 			isa = PBXGroup;
 			children = (
+				DB381505204B125000F15E3D /* Models */,
 				DBADFFB3204B0EC000644A56 /* Services */,
 				DBADFFB2204B0EB200644A56 /* ViewControllers */,
 				DBADFFB1204B0EAC00644A56 /* Views */,
-				DBADFFB0204B0E9600644A56 /* Models */,
 				E259636F204B0154009E0BD2 /* SupportingFiles */,
 				E259634D204B0138009E0BD2 /* Info.plist */,
+				DB381506204B17B600F15E3D /* GoogleService-Info.plist */,
 				E2596345204B0138009E0BD2 /* aNYJob.xcdatamodeld */,
 			);
 			path = aNYJob;
@@ -343,6 +424,7 @@
 				E259634C204B0138009E0BD2 /* LaunchScreen.storyboard in Resources */,
 				E2B1F3DA204B16610037394F /* openJobsNYC.json in Resources */,
 				E2596349204B0138009E0BD2 /* Assets.xcassets in Resources */,
+				DB381507204B17B600F15E3D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,13 +611,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				E2B1F3D7204B15D00037394F /* TestView.swift in Sources */,
 				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
 				E2B1F3D1204B14A60037394F /* JobsAPIClient.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
 				E2B1F3CF204B126E0037394F /* Job.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
+=======
+				DB3814EE204B102600F15E3D /* Alert.swift in Sources */,
+				DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */,
+				DB3814FF204B121D00F15E3D /* DatabaseService+Get.swift in Sources */,
+				DB3814F2204B102600F15E3D /* NetworkConnectivity.swift in Sources */,
+				DB3814E3204B100600F15E3D /* LoginView.swift in Sources */,
+				DB3814F8204B11F900F15E3D /* AuthUserServiceDelegate.swift in Sources */,
+				E259633F204B0138009E0BD2 /* AppDelegate.swift in Sources */,
+				DB381504204B123000F15E3D /* StorageService.swift in Sources */,
+				DB3814E7204B101200F15E3D /* LoginVC.swift in Sources */,
+>>>>>>> 62611c9ac979efcb167e55f6a936f9be9342d83e
 				E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */,
+				DB3814F6204B11F600F15E3D /* AuthUserService.swift in Sources */,
+				DB381500204B121D00F15E3D /* DatabaseServiceDelegate.swift in Sources */,
+				DB3814FE204B121D00F15E3D /* DatabaseService.swift in Sources */,
+				DB3814E2204B100600F15E3D /* EmptyStateView.swift in Sources */,
+				DB3814F3204B102600F15E3D /* StyleSheet.swift in Sources */,
+				DB3814E6204B101200F15E3D /* CreateAccountVC.swift in Sources */,
+				DB3814E1204B100600F15E3D /* CreateAccountView.swift in Sources */,
+				DB3814DD204B0FED00F15E3D /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
