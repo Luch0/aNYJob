@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 
-
 class CreateAccountView: UIView {
     
     // Create Account Label
@@ -20,10 +19,10 @@ class CreateAccountView: UIView {
         return label
     }()
     
-    //username textfield
-    lazy var usernameTextField: UITextField = {
+    //address textfield
+    lazy var addressTextField: UITextField = {
         let tField = UITextField()
-        Stylesheet.Objects.Textfields.UserName.style(textfield: tField)
+        Stylesheet.Objects.Textfields.Address.style(textfield: tField)
         return tField
     }()
     
@@ -60,7 +59,6 @@ class CreateAccountView: UIView {
         return button
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -79,7 +77,7 @@ class CreateAccountView: UIView {
     
     private func setupObjects() {
         self.addSubview(createAccountLabel)
-        self.addSubview(usernameTextField)
+        self.addSubview(addressTextField)
         self.addSubview(passwordTextField)
         self.addSubview(emailTextField)
         self.addSubview(statusLabel)
@@ -93,16 +91,8 @@ class CreateAccountView: UIView {
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
         }
         
-        usernameTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(self.createAccountLabel.snp.bottom).offset(20)
-            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
-            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.TextfieldWidthMult)
-            make.height.equalTo(Stylesheet.ConstraintSizes.TextfieldHeight)
-        }
-        
-        
         emailTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(usernameTextField.snp.bottom).offset(20)
+            make.top.equalTo(self.createAccountLabel.snp.bottom).offset(20)
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.TextfieldWidthMult)
             make.height.equalTo(Stylesheet.ConstraintSizes.TextfieldHeight)
@@ -110,6 +100,13 @@ class CreateAccountView: UIView {
         
         passwordTextField.snp.makeConstraints { (make) in
             make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
+            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.TextfieldWidthMult)
+            make.height.equalTo(Stylesheet.ConstraintSizes.TextfieldHeight)
+        }
+        
+        addressTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(self.passwordTextField.snp.bottom).offset(20)
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.TextfieldWidthMult)
             make.height.equalTo(Stylesheet.ConstraintSizes.TextfieldHeight)

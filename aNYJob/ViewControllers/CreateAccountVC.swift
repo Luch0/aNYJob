@@ -21,16 +21,11 @@ class CreateAccountVC: UIViewController {
     private func setupViews() {
         self.view.addSubview(createAccountView)
         createAccountView.emailTextField.delegate = self
-        createAccountView.usernameTextField.delegate = self
+        createAccountView.addressTextField.delegate = self
         createAccountView.passwordTextField.delegate = self
         
         //Action for Create Account Button
         createAccountView.createAccountButton.addTarget(self, action: #selector(newAccountFunc), for: .touchUpInside)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
     }
     
     @objc private func newAccountFunc() {
@@ -40,7 +35,7 @@ class CreateAccountVC: UIViewController {
             return
         }
         
-        guard let addressText = createAccountView.usernameTextField.text else {
+        guard let addressText = createAccountView.addressTextField.text else {
             createAccountView.statusLabel.text = "Optional - Please enter a valid address"
             return
         }
@@ -87,7 +82,7 @@ extension CreateAccountVC: AuthUserServiceDelegate {
             self.dismiss(animated: true, completion: {
                 self.createAccountView.emailTextField.text = nil
                 self.createAccountView.passwordTextField.text = nil
-                self.createAccountView.usernameTextField.text = nil
+                self.createAccountView.addressTextField.text = nil
             })
         }, to: alert)
         present(alert, animated: true, completion: nil)

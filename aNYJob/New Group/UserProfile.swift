@@ -18,7 +18,7 @@ class UserProfile: NSObject{
         return """
         - email: \(self.email)
         - userID: \(self.userID)
-        - address: \(self.address)
+        - address: \(self.address ?? "")
         """
     }
     

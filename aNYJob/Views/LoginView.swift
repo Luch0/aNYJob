@@ -13,16 +13,17 @@ class LoginView: UIView {
     
     lazy var loginImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "BlackPanther")
-        iv.layer.borderWidth = CGFloat(Stylesheet.BorderWidths.FunctionButtons)
+        iv.image = UIImage(named: "logo")
+        //iv.layer.borderWidth = CGFloat(Stylesheet.BorderWidths.FunctionButtons)
         Stylesheet.Objects.ImageViews.Opaque.style(imageView: iv)
+        iv.backgroundColor = .clear
         return iv
     }()
     
     lazy var titleLabel: UILabel = {
         let stl = UILabel()
-        stl.text = "Wakanda Hyper Information Program"
-        Stylesheet.Objects.Labels.AppName.style(label: stl)
+        stl.text = "Not having a job is hard enough, why should searching for one be hard too?"
+        Stylesheet.Objects.Labels.Regular.style(label: stl)
         stl.backgroundColor = UIColor(white: 1, alpha: 0.03)
         stl.alpha = 0 // for animation
         
@@ -157,9 +158,9 @@ class LoginView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .white
         setupObjects()
         setupViews()
+        self.backgroundColor = .white
     }
     
     private func setupObjects() {
@@ -178,11 +179,14 @@ class LoginView: UIView {
     
     private func setupViews() {
         loginImageView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.safeAreaLayoutGuide.snp.edges)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.width.equalTo(self.safeAreaLayoutGuide.snp.width)
+            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(0.3)
+            //make.edges.equalTo(self.safeAreaLayoutGuide.snp.edges)
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(loginImageView.snp.bottom)
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
         }
