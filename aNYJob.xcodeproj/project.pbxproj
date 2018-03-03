@@ -110,6 +110,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DBADFFB0204B0E9600644A56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DBADFFB1204B0EAC00644A56 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DBADFFB2204B0EB200644A56 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DBADFFB3204B0EC000644A56 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E2596332204B0138009E0BD2 = {
 			isa = PBXGroup;
 			children = (
@@ -135,10 +164,10 @@
 		E259633D204B0138009E0BD2 /* aNYJob */ = {
 			isa = PBXGroup;
 			children = (
-				E2596373204B026B009E0BD2 /* Models */,
-				E2596372204B0266009E0BD2 /* Services */,
-				E2596371204B0260009E0BD2 /* Views */,
-				E2596370204B0254009E0BD2 /* ViewControllers */,
+				DBADFFB3204B0EC000644A56 /* Services */,
+				DBADFFB2204B0EB200644A56 /* ViewControllers */,
+				DBADFFB1204B0EAC00644A56 /* Views */,
+				DBADFFB0204B0E9600644A56 /* Models */,
 				E259636F204B0154009E0BD2 /* SupportingFiles */,
 				E259634D204B0138009E0BD2 /* Info.plist */,
 				E2596345204B0138009E0BD2 /* aNYJob.xcdatamodeld */,
@@ -172,34 +201,6 @@
 				E259634A204B0138009E0BD2 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		E2596370204B0254009E0BD2 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E2596371204B0260009E0BD2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E2596372204B0266009E0BD2 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E2596373204B026B009E0BD2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
