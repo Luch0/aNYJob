@@ -23,6 +23,14 @@ class SearchViewController: UIViewController {
         }
     }
     
+    var searchterm = "" {
+        didSet {
+            JobsAPIClient.manager.getOnlineJobs(with: searchterm, completionHandler: {
+                self.filteredArr = $0
+            }, errorHandler: { print($0) })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadJobs()
@@ -123,7 +131,7 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        searchterm = searchBar.text!
     }
 }
 
