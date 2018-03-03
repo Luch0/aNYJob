@@ -60,7 +60,9 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "jobCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "jobCell", for: indexPath) as! JobTableViewCell
+        let job = Job(additional_information: "das", agency: "asdsa", business_title: "asdsa", civil_service_title: "asdsa", division_work_unit: "adsd", full_time_part_time_indicator: "ads", hours_shift: "dasda", job_category: "asdsa", job_description: "Asdas", job_id: "ads", minimum_qual_requirements: "das", post_until: "adsImage", posting_date: "sadsa", posting_type: "asd", posting_updated: "ads", preferred_skills: "asdsa", process_date: "asds", residency_requirement: "adsad", salary_frequency: "asdsa", salary_range_from: "asdsadsa", salary_range_to: "asdasdas", title_code_no: "asdas", to_apply: "asdsa", work_location: "asdsa", work_location_1: "asdas")
+        cell.configureCell(job: job)
         return cell
     }
 }
