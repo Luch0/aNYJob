@@ -117,7 +117,9 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        let job = jobs[indexPath.row]
+        let detailViewController = JobDetailViewController(job: job)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
