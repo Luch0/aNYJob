@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-//import IQKeyboardManagerSwift
 import CoreData
 
 @UIApplicationMain
@@ -18,16 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        //IQKeyboardManager.sharedManager().enable = true
         
         FirebaseApp.configure()
         
+        let tabBarController = UITabBarController()
+        
+        let searchViewController = SearchViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        
         let loginVC = LoginVC()
-        let navController = UINavigationController(rootViewController: loginVC)
+        let loginNavigationController = UINavigationController(rootViewController: loginVC)
+        loginNavigationController.tabBarItem = UITabBarItem(title: "Login", image: nil, tag: 1)
+        
+        tabBarController.setViewControllers([searchNavigationController, loginNavigationController], animated: true)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navController
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true
