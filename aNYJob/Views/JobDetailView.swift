@@ -13,7 +13,7 @@ class JobDetailView: UIView {
 
     lazy public var tableView: UITableView = {
         let tableView = UITableView()
-        // Register static cells
+        tableView.register(JobDetailTableViewCell.self, forCellReuseIdentifier: "detailCell")
         return tableView
     }()
 
