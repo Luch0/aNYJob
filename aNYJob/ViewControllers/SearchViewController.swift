@@ -20,7 +20,12 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBar()
         configureSearchView()
+    }
+    
+    private func configureNavBar() {
+        navigationItem.title = "Search"
     }
     
     private func configureSearchView() {
@@ -37,7 +42,7 @@ class SearchViewController: UIViewController {
         // 2 Manhattan
         // 3 Brooklyn
         // 4 Bronx
-        // 5 Manhattan
+        // 5 SI
     }
     
     @objc private func jobTypeSegmentedControlValueChanged() {
