@@ -33,7 +33,6 @@ class SearchView: UIView {
         segmentedControl.insertSegment(withTitle: "All", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "Full-Time", at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "Part-Time", at: 2, animated: true)
-        segmentedControl.insertSegment(withTitle: "Intern", at: 3, animated: true)
         return segmentedControl
     }()
     
