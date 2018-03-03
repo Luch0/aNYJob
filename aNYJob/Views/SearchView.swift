@@ -13,18 +13,19 @@ class SearchView: UIView {
     
     lazy public var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.tintColor = .white
+        //searchBar.tintColor = .white
+        searchBar.barTintColor = .white
         return searchBar
     }()
     
     lazy public var boroughSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
         segmentedControl.insertSegment(withTitle: "All", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Queens", at: 1, animated: true)
-        segmentedControl.insertSegment(withTitle: "Manhattan", at: 2, animated: true)
-        segmentedControl.insertSegment(withTitle: "Brooklyn", at: 3, animated: true)
-        segmentedControl.insertSegment(withTitle: "Bronx", at: 4, animated: true)
-        segmentedControl.insertSegment(withTitle: "Staten Island", at: 5, animated: true)
+        segmentedControl.insertSegment(withTitle: "QNS", at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "MAN", at: 2, animated: true)
+        segmentedControl.insertSegment(withTitle: "BK", at: 3, animated: true)
+        segmentedControl.insertSegment(withTitle: "BX", at: 4, animated: true)
+        segmentedControl.insertSegment(withTitle: "SI", at: 5, animated: true)
         return segmentedControl
     }()
     
@@ -97,7 +98,7 @@ extension SearchView {
     private func setupTableView() {
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(jobTypeSegmentedControl.snp.bottom)
+            make.top.equalTo(jobTypeSegmentedControl.snp.bottom).offset(1)
             make.width.equalTo(safeAreaLayoutGuide.snp.width)
             make.centerX.equalTo(safeAreaLayoutGuide.snp.centerX)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
