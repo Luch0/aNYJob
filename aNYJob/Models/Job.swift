@@ -19,14 +19,14 @@ struct Job: Codable {
     let job_category: String
     let job_description: String
     let job_id: String
-    let minimum_qual_requirements: String
-    let post_until: String
+    let minimum_qual_requirements: String?
+    let post_until: String?
     let posting_date: String
     let posting_type: String
     let posting_updated: String
     let preferred_skills: String
     let process_date: String
-    let residency_requirement: String
+    let residency_requirement: String?
     let salary_frequency: String
     let salary_range_from: String
     let salary_range_to: String
