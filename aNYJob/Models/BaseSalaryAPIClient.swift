@@ -21,7 +21,7 @@ class BaseSalaryAPIClient {
                 let decoder = JSONDecoder()
                 baseSalaries = try decoder.decode([BaseSalary].self, from: jsonData)
             } catch {
-                print("Unable to read json file: \(error.localizedDescription)")
+                print("Unable to read json file: \(error)")
             }
         }
         return baseSalaries

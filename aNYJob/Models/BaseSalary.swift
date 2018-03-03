@@ -8,15 +8,15 @@
 
 import Foundation
 
-class BaseSalary: Codable {
+struct BaseSalary: Codable {
     let agency_name: String
     let agency_start_date: String
     let base_salary: String
-    let first_name: String
+    let first_name: String?
     let fiscal_year: String
-    let last_name: String
+    let last_name: String?
     let leave_status_as_of_july_31: String
-    let mid_init: String
+    let mid_init: String?
     let ot_hours: String
     let pay_basis: String
     let regular_gross_paid: String

@@ -21,7 +21,7 @@ class JobsAPIClient {
                 let decoder = JSONDecoder()
                 jobs = try decoder.decode([Job].self, from: jsonData)
             } catch {
-                print("Unable to read json file: \(error.localizedDescription)")
+                print("Unable to read json file: \(error)")
             }
         }
         return jobs
