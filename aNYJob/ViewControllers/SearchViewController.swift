@@ -12,6 +12,12 @@ class SearchViewController: UIViewController {
     
     let searchView = SearchView()
     
+    var jobs = [Job]() {
+        didSet {
+            searchView.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchView()
