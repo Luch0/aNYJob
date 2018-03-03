@@ -61,12 +61,11 @@ extension Stylesheet {
                 switch self {
                 case .Clear:
                     imageView.backgroundColor = .clear
-                    imageView.contentMode = .scaleAspectFit
                     imageView.layer.borderWidth = CGFloat(Stylesheet.BorderWidths.FunctionButtons)
                     imageView.layer.borderColor = (Stylesheet.Colors.Dark).cgColor
                 case .Opaque:
                     imageView.backgroundColor = UIColor(red: 0.298, green: 0.278, blue: 0.247, alpha: 1.00)
-                    imageView.contentMode = .scaleAspectFill
+                    imageView.contentMode = .scaleAspectFit
                 }
             }
         }
@@ -119,13 +118,13 @@ extension Stylesheet {
                 switch self {
                 case .Regular:
                     label.font = Stylesheet.Fonts.Regular
-                    label.textColor = Stylesheet.Colors.LightGrey
+                    label.textColor = Stylesheet.Colors.Dark
                     label.backgroundColor = .clear
                     label.textAlignment = .center
                     label.numberOfLines = 0
                 case .AppName:
                     label.font = Stylesheet.Fonts.AppName
-                    label.textColor = Stylesheet.Colors.LightGrey
+                    label.textColor = Stylesheet.Colors.Dark
                     label.backgroundColor = .clear
                     label.textAlignment = .center
                     label.numberOfLines = 0
@@ -193,7 +192,7 @@ extension Stylesheet {
         }
         
         enum Textfields {
-            case UserName
+            case Address
             case LoginEmail
             case LoginPassword
             case PostTitle
@@ -214,7 +213,7 @@ extension Stylesheet {
                     textfield.keyboardType = .asciiCapable
                     textfield.returnKeyType = .default
                     textfield.placeholder = "Add a Comment"
-                case .UserName:
+                case .Address:
                     textfield.borderStyle = UITextBorderStyle.bezel
                     textfield.layer.borderColor = (Stylesheet.Colors.LightGrey).cgColor
                     textfield.backgroundColor = Stylesheet.Colors.White
@@ -226,7 +225,7 @@ extension Stylesheet {
                     textfield.autocorrectionType = .no
                     textfield.keyboardType = .asciiCapable
                     textfield.returnKeyType = .default
-                    textfield.placeholder = "User Name"
+                    textfield.placeholder = "Optional Address"
                 case .LoginEmail:
                     textfield.borderStyle = UITextBorderStyle.bezel
                     textfield.layer.borderColor = (Stylesheet.Colors.LightGrey).cgColor

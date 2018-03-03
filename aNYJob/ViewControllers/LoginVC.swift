@@ -68,6 +68,7 @@ class LoginVC: UIViewController {
     }
     
     private func setupViews() {
+        self.view.backgroundColor = .white
         self.view.addSubview(loginView)
     }
     
