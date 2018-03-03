@@ -13,7 +13,7 @@ class LoginView: UIView {
     
     lazy var loginImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "logo")
+        iv.image = UIImage(named: "logo2")
         //iv.layer.borderWidth = CGFloat(Stylesheet.BorderWidths.FunctionButtons)
         Stylesheet.Objects.ImageViews.Opaque.style(imageView: iv)
         iv.backgroundColor = .clear
