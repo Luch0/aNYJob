@@ -113,6 +113,10 @@ extension Stylesheet {
             case PostUsername
             case LikesDislikes
             case SelectCategory
+            case JobLabel
+            case SalaryLabel
+            case AgencyNameLabel
+            case BoroughLabel
             
             func style(label: UILabel) {
                 switch self {
@@ -157,6 +161,30 @@ extension Stylesheet {
                     label.backgroundColor = .clear
                     label.textAlignment = .center
                     label.numberOfLines = 1
+                case .JobLabel:
+                    label.font = Stylesheet.Fonts.Bold
+                    label.textColor = Stylesheet.Colors.Dark
+                    label.backgroundColor = .clear
+                    label.textAlignment = .left
+                    label.numberOfLines = 0
+                case .SalaryLabel:
+                    label.font = Stylesheet.Fonts.Bold
+                    label.textColor = Stylesheet.Colors.Dark
+                    label.backgroundColor = .clear
+                    label.textAlignment = .right
+                    label.numberOfLines = 0
+                case .AgencyNameLabel:
+                    label.font = Stylesheet.Fonts.Bold
+                    label.textColor = Stylesheet.Colors.Dark
+                    label.backgroundColor = .clear
+                    label.textAlignment = .left
+                    label.numberOfLines = 0
+                case .BoroughLabel:
+                    label.font = Stylesheet.Fonts.Bold
+                    label.textColor = Stylesheet.Colors.Dark
+                    label.backgroundColor = .clear
+                    label.textAlignment = .right
+                    label.numberOfLines = 0
                 }
             }
         }
