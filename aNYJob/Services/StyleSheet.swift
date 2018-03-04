@@ -24,11 +24,11 @@ enum Stylesheet {
     
     enum Fonts {
         static let AppName = UIFont(name: "HelveticaNeue-CondensedBold", size: 45.0)
-        static let PostTitle = UIFont(name: "HelveticaNeue-CondensedBold", size: 30.0)
+        static let PostTitle = UIFont(name: "HelveticaNeue-CondensedBold", size: 25.0)
         static let Regular = UIFont(name: "HelveticaNeue-Light", size: 15.0)
         static let TextfieldFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)
         static let Link = UIFont(name: "HelveticaNeue", size: 15.0)
-        static let Bold = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
+        static let Bold = UIFont(name: "HelveticaNeue-Medium", size: 17.0)
     }
     
     enum BorderWidths {
