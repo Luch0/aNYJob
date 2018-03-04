@@ -76,18 +76,18 @@ class ComparisonTableViewCell: UITableViewCell {
             make.top.equalTo(jobNameLabel.snp.bottom)
             make.bottom.equalTo(self.snp.bottom)
             make.leading.equalTo(self.snp.leading)
-            make.trailing.equalTo(self.snp.trailing)
+            //make.trailing.equalTo(self.snp.trailing)
         }
         salaryLabel.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(self.snp.width).multipliedBy(0.3)
             make.top.equalTo(self.snp.top)
-            make.leading.equalTo(jobNameLabel.snp.trailing)
+            make.trailing.equalTo(self.snp.trailing)
         }
         workLocationLabel.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(self.snp.width).multipliedBy(0.4)
             make.top.equalTo(salaryLabel.snp.bottom)
             make.bottom.equalTo(self.snp.bottom)
-            make.leading.equalTo(agencyNameLabel.snp.trailing)
+            //make.leading.equalTo(agencyNameLabel.snp.trailing)
             make.trailing.equalTo(self.snp.trailing)
         }
     }
