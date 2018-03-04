@@ -44,7 +44,7 @@ class ComparisonViewController: UIViewController {
     }
     
     private func loadBaseSalaries() {
-        BaseSalaryAPIClient.manager.getOnlineBaseSlalaries(with: job.business_title, completionHandler: {
+        BaseSalaryAPIClient.manager.getOnlineBaseSlalaries(with: job.civil_service_title, completionHandler: {
             self.sampleArray = $0
         }, errorHandler: { print($0) })
     }

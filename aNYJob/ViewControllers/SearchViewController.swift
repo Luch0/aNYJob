@@ -84,6 +84,10 @@ class SearchViewController: UIViewController {
     private func loadAllJobs() {
         JobsAPIClient.manager.getAllOnlineJobs(completionHandler: {
             self.allJobs = $0
+            self.filteredByBoroughArr = $0
+            self.filteredByJobTypeArr = $0
+            self.filteredByBoroughArr = $0
+            self.filterBySearchTerm = $0
         }, errorHandler: { print($0) })
     }
     

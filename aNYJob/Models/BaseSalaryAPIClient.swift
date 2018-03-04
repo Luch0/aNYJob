@@ -28,7 +28,7 @@ class BaseSalaryAPIClient {
     }
     
     func getOnlineBaseSlalaries(with keyword: String, completionHandler: @escaping ([BaseSalary]) -> Void, errorHandler: @escaping (Error) -> Void) {
-        let fullUrl = "https://data.cityofnewyork.us/resource/4qxi-jgbe.json?$where=title_description%20like%20%27%25\(keyword.uppercased())%25%27"
+        let fullUrl = "https://data.cityofnewyork.us/resource/4qxi-jgbe.json?$where=title_description%20like%20%27%25\(keyword.uppercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)%25%27"
         guard let url = URL(string: fullUrl) else {
             errorHandler(AppError.badUrl(str: fullUrl))
             return
