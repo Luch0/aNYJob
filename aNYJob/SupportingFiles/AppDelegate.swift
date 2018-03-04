@@ -30,7 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginNavigationController = UINavigationController(rootViewController: loginVC)
         loginNavigationController.tabBarItem = UITabBarItem(title: "Login", image: nil, tag: 1)
         
-        tabBarController.setViewControllers([searchNavigationController, loginNavigationController], animated: true)
+        let settingsVC = SettingsViewController()
+        let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 2)
+        
+        tabBarController.setViewControllers([searchNavigationController, loginNavigationController, settingsNavigationController], animated: true)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
