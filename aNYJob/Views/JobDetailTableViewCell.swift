@@ -33,21 +33,25 @@ class JobDetailTableViewCell: UITableViewCell {
     
     lazy public var titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
     lazy public var departmentLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
     lazy public var salaryLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
     lazy public var shortDescriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
@@ -64,6 +68,7 @@ class JobDetailTableViewCell: UITableViewCell {
     
     lazy public var locationLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
@@ -77,11 +82,13 @@ class JobDetailTableViewCell: UITableViewCell {
     
     lazy public var additionalInfoLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
     lazy public var jobRequirementsLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
