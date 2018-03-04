@@ -26,6 +26,15 @@ class FavoritesViewController: UIViewController {
         favoritesView.jobTableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DatabaseService.manager.getAllSavedJobs { (jobs) in
+            if let jobs = jobs {
+                self.sampleArray = jobs
+            }
+        }
+    }
+    
     private func setupView() {
         self.view.addSubview(favoritesView)
         
