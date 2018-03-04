@@ -129,7 +129,7 @@ class LoginVC: UIViewController {
             if let emailText = textField.text, !emailText.isEmpty {
                 AuthUserService.manager.delegate = self
                 AuthUserService.manager.forgotPassword(withEmail: emailText)
-                self.dismiss(animated: true, completion: nil)
+                //self.dismiss(animated: true, completion: nil)
             } else {
                 let errorAlert = Alert.createErrorAlert(withMessage: "Nothing was entered in the textfield.")
                 self.present(errorAlert, animated: true, completion: nil)
