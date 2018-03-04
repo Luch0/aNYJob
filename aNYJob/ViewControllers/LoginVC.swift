@@ -109,7 +109,8 @@ class LoginVC: UIViewController {
     }
     
     @objc func createAccountButtonPressed() {
-        navigationController?.pushViewController(createAccountVC, animated: false)
+        present(createAccountVC, animated: true, completion: nil)
+        //navigationController?.pushViewController(createAccountVC, animated: false)
     }
     
     @objc func resetPassword() {

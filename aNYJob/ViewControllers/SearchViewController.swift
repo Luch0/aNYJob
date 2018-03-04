@@ -67,15 +67,15 @@ class SearchViewController: UIViewController {
         configureSearchView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let _ = AuthUserService.manager.getCurrentUser() {
-            
-        } else {
-            let loginViewController = LoginVC()
-            present(loginViewController, animated: true, completion: nil)
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        if let _ = AuthUserService.manager.getCurrentUser() {
+//            
+//        } else {
+//            let loginViewController = LoginVC()
+//            present(loginViewController, animated: true, completion: nil)
+//        }
+//    }
     
     private func configureNavBar() {
         navigationItem.title = "Search"
