@@ -16,8 +16,7 @@ class JobDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(jobDetailView)
-        jobDetailView.tableView.dataSource = self
-        jobDetailView.tableView.delegate = self
+        jobDetailView.configureScrollView(job: job)
     }
     
     init(job: Job) {
@@ -31,18 +30,3 @@ class JobDetailViewController: UIViewController {
     
 }
 
-extension JobDetailViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! JobDetailTableViewCell
-        cell.configureCell(job: job)
-        return cell
-    }
-}
-
-extension JobDetailViewController: UITableViewDelegate {
-
-}

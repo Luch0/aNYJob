@@ -12,7 +12,6 @@
 		8124807A204B189000E244AC /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248079204B189000E244AC /* JobTableViewCell.swift */; };
 		8124807C204B19C500E244AC /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124807B204B19C500E244AC /* JobDetailView.swift */; };
 		8124807E204B1D6700E244AC /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124807D204B1D6700E244AC /* JobDetailViewController.swift */; };
-		81248084204B370100E244AC /* JobDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248083204B370100E244AC /* JobDetailTableViewCell.swift */; };
 		81248086204B5BD900E244AC /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81248085204B5BD900E244AC /* NetworkHelper.swift */; };
 		B33606E4B959481D59662D47 /* Pods_aNYJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531556CA4FC8AB018E009546 /* Pods_aNYJob.framework */; };
 		CE37BB6C042AA12D833BDA97 /* Pods_aNYJobUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F719CBE940ECA0FAFD9F3E22 /* Pods_aNYJobUITests.framework */; };
@@ -85,7 +84,6 @@
 		81248079204B189000E244AC /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		8124807B204B19C500E244AC /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
 		8124807D204B1D6700E244AC /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
-		81248083204B370100E244AC /* JobDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTableViewCell.swift; sourceTree = "<group>"; };
 		81248085204B5BD900E244AC /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		90120932C455A163A43A761F /* Pods-aNYJobTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aNYJobTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aNYJobTests/Pods-aNYJobTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE55452B95D1560385EDD1C4 /* Pods_aNYJobTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJobTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,7 +238,6 @@
 				DB3814E0204B100600F15E3D /* LoginView.swift */,
 				81248077204B174B00E244AC /* SearchView.swift */,
 				8124807B204B19C500E244AC /* JobDetailView.swift */,
-				81248083204B370100E244AC /* JobDetailTableViewCell.swift */,
 				DB053CB6204B3F00005B4E5F /* ComparisonTableViewCell.swift */,
 				81248079204B189000E244AC /* JobTableViewCell.swift */,
 			);
@@ -681,7 +678,6 @@
 				DB053CAD204B3E4C005B4E5F /* FavoritesView.swift in Sources */,
 				DB3814DD204B0FED00F15E3D /* UserProfile.swift in Sources */,
 				8124807A204B189000E244AC /* JobTableViewCell.swift in Sources */,
-				81248084204B370100E244AC /* JobDetailTableViewCell.swift in Sources */,
 				DB053CB1204B3E7C005B4E5F /* ComparisonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
