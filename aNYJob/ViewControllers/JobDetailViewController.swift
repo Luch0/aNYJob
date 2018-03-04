@@ -20,6 +20,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         view.addSubview(jobDetailView)
         jobDetailView.configureScrollView(job: job)
         configureNavBar()
+        DatabaseService.manager.showAlertDelegate = self
         jobDetailView.shareJobButton.addTarget(self, action: #selector(emailShare), for: .touchUpInside)
         jobDetailView.compareButton.addTarget(self, action: #selector(compareButtonTapped), for: .touchUpInside)
         jobDetailView.applyHereButton.addTarget(self, action: #selector(applyHereButtonTapped), for: .touchUpInside)
@@ -32,7 +33,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     }
     
     @objc private func heartButtonTapped() {
-
+        DatabaseService.manager.addSavedJob(job)
         UIView.animate(withDuration: 0.05) {
             self.navigationItem.rightBarButtonItem?.tintColor = .red
         }
@@ -82,6 +83,16 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     private func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+}
+
+extension JobDetailViewController: ShowAlertDelegate {
+    func showAlertDelegate(nameOfWhatYoureSaving: String) {
+        let alert = Alert.create(withTitle: "Success", andMessage: "Job added to favorites.", withPreferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     
 }
 
