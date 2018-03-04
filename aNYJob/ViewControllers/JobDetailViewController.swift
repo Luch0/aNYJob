@@ -22,8 +22,9 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         configureNavBar()
         jobDetailView.shareJobButton.addTarget(self, action: #selector(emailShare), for: .touchUpInside)
         jobDetailView.compareButton.addTarget(self, action: #selector(compareButtonTapped), for: .touchUpInside)
+        jobDetailView.applyHereButton.addTarget(self, action: #selector(applyHereButtonTapped), for: .touchUpInside)
     }
-    
+
     private func configureNavBar() {
         navigationItem.title = job.civil_service_title
         let favoriteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
@@ -38,6 +39,12 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     
     @objc private func compareButtonTapped() {
         // TODO: - SEGUE TO COMPARISON
+    }
+    
+    @objc private func applyHereButtonTapped() {
+        let url = "https://a127-jobs.nyc.gov/index_new.html?keyword=\(job.job_id)"
+        let webViewController = WebViewController(url: url)
+        navigationController?.pushViewController(webViewController, animated: true)
     }
     
     init(job: Job) {
