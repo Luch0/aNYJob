@@ -21,10 +21,23 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         jobDetailView.configureScrollView(job: job)
         configureNavBar()
         jobDetailView.shareJobButton.addTarget(self, action: #selector(emailShare), for: .touchUpInside)
+        jobDetailView.compareButton.addTarget(self, action: #selector(compareButtonTapped), for: .touchUpInside)
     }
     
     private func configureNavBar() {
         navigationItem.title = job.civil_service_title
+        let favoriteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
+        navigationItem.rightBarButtonItem = favoriteButton
+    }
+    
+    @objc private func heartButtonTapped() {
+        UIView.animate(withDuration: 0.05) {
+            self.navigationItem.rightBarButtonItem?.tintColor = .red
+        }
+    }
+    
+    @objc private func compareButtonTapped() {
+        // TODO: - SEGUE TO COMPARISON
     }
     
     init(job: Job) {

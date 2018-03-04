@@ -46,6 +46,13 @@ class JobDetailView: UIView {
         return label
     }()
     
+    lazy public var compareButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Compare to similar jobs", for: .normal)
+        button.backgroundColor = .red
+        return button
+    }()
+    
     lazy public var shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = Stylesheet.Fonts.Regular
@@ -172,6 +179,7 @@ extension JobDetailView {
         setupTitleLabel()
         setupDepartmentLabel()
         setupSalaryLabel()
+        setupCompareButton()
         setupShortDescriptionLabel()
         setupApplyHereButton()
         setupLocationLabel()
@@ -229,10 +237,18 @@ extension JobDetailView {
         }
     }
     
+    private func setupCompareButton() {
+        contentView.addSubview(compareButton)
+        compareButton.snp.makeConstraints { (make) in
+            make.top.equalTo(salaryLabel.snp.bottom).offset(5)
+            make.centerX.equalTo(contentView.snp.centerX)
+        }
+    }
+    
     private func setupShortDescriptionLabel() {
         contentView.addSubview(shortDescriptionLabel)
         shortDescriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(salaryLabel.snp.bottom).offset(5)
+            make.top.equalTo(compareButton.snp.bottom).offset(5)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
             make.trailing.equalTo(contentView.snp.trailing)
