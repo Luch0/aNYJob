@@ -128,6 +128,19 @@ class JobDetailView: UIView {
         locationLabel.text = job.work_location
         additionalInfoLabel.text = job.additional_information
         jobRequirementsLabel.text = job.minimum_qual_requirements ?? ""
+        turnAddressIntoCoordinates(address: job.work_location, completionHandler: { (coordinate) in
+            self.configureMapView(coordinate: coordinate)
+        }) { (error) in
+            
+        }
+    }
+    
+    private func configureMapView(coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
     }
     
     private func turnAddressIntoCoordinates(address: String,

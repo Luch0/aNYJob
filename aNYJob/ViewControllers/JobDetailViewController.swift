@@ -17,6 +17,11 @@ class JobDetailViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(jobDetailView)
         jobDetailView.configureScrollView(job: job)
+        configureNavBar()
+    }
+    
+    private func configureNavBar() {
+        navigationItem.title = job.civil_service_title
     }
     
     init(job: Job) {
