@@ -109,7 +109,7 @@ class SearchViewController: UIViewController {
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("queens") }
             print("Queens")
         case 2:
-            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("manhattan") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("manhattan")  || $0.work_location.lowercased().contains("new york") }
             print("Manhattan")
         case 3:
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("brooklyn") }
@@ -118,7 +118,7 @@ class SearchViewController: UIViewController {
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("bronx") }
             print("Bronx")
         case 5:
-            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("staten island") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("s.i.") }
             print("Staten Island")
         default:
             print("Error")
