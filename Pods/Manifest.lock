@@ -1,4 +1,8 @@
 PODS:
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - DZNEmptyDataSet (1.8.1)
   - Firebase/Auth (4.9.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.3)
@@ -52,6 +56,8 @@ PODS:
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - Charts
+  - DZNEmptyDataSet
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -59,6 +65,8 @@ DEPENDENCIES:
   - SnapKit
 
 SPEC CHECKSUMS:
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseAuth: aaaf68d5064a6c8fec435758f83a43b8db26ccaa
@@ -72,6 +80,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 529081e956ee71360bc83a0d5bc12d899f42b463
+PODFILE CHECKSUM: d8078b6028303aeb0fbb6d81870336094d69f606
 
 COCOAPODS: 1.4.0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class ComparisonView: UIView {
 
@@ -18,6 +19,25 @@ class ComparisonView: UIView {
         view.backgroundColor = UIColor(red: 0.859, green: 0.859, blue: 0.969, alpha: 1.00)
         return view
     }()
+    
+    lazy var barChart: BarChartView = {
+        let barChart = BarChartView()
+        return barChart
+    }()
+    
+    public func updateBarChart(with array: [BaseSalary]) {
+        var barEntries = [BarChartDataEntry]()
+        for i in 0...50 {
+            let dataEntry = BarChartDataEntry(x: Double(i+1), y: Double(array[i].base_salary)!)
+            barEntries.append(dataEntry)
+        }
+        let dataSet = BarChartDataSet(values: barEntries, label: "Salaries")
+        dataSet.colors = ChartColorTemplates.colorful()
+        let data = BarChartData(dataSets: [dataSet])
+        barChart.data = data
+        barChart.chartDescription?.text = "Description goes here"
+        barChart.notifyDataSetChanged()
+    }
     
     lazy var comparisonTableView: UITableView = {
         let tv = UITableView()
@@ -43,17 +63,26 @@ class ComparisonView: UIView {
     }
     
     private func setupViews() {
-        addSubview(containerView)
+        //addSubview(containerView)
+        addSubview(barChart)
         addSubview(comparisonTableView)
         
-        containerView.snp.makeConstraints { (make) in
+//        containerView.snp.makeConstraints { (make) in
+//            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
+//            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+//            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(0.2)
+//            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
+//        }
+        
+        barChart.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(0.2)
-            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
+            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(0.5)
+            make.width.equalTo(self.safeAreaLayoutGuide.snp.width)//.multipliedBy(0.9)
         }
+        
         comparisonTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(containerView.snp.bottom)
+            make.top.equalTo(barChart.snp.bottom)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width)
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
