@@ -12,7 +12,7 @@ class JobTableViewCell: UITableViewCell {
     
     lazy public var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = Stylesheet.Colors.RedBg
+        view.backgroundColor = .white
         view.layer.shadowOpacity = 1
         view.layer.shadowOffset = CGSize(width: 1, height: 2)
         return view
@@ -53,7 +53,7 @@ class JobTableViewCell: UITableViewCell {
     }
     
     private func commonInit() {
-        backgroundColor = .white
+        backgroundColor = .clear
         setupViews()
     }
     
