@@ -17,7 +17,7 @@ protocol RefreshDelegate {
 }
 
 protocol ShowAlertDelegate {
-    func showAlertDelegate(cardOrDeck: String)
+    func showAlertDelegate(nameOfWhatYoureSaving: String)
 }
 
 class DatabaseService: NSObject {
