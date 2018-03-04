@@ -82,9 +82,15 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     }
     
     // MARK: MFMailComposeViewControllerDelegate
-    private func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        controller.dismiss(animated: true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true, completion: nil)
+
     }
+    
+//    private func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+//        self.dismiss(animated: true, completion: nil)
+//        //controller.dismiss(animated: true, completion: nil)
+//    }
     
 }
 
