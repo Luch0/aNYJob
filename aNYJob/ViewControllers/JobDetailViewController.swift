@@ -32,6 +32,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     }
     
     @objc private func heartButtonTapped() {
+
         UIView.animate(withDuration: 0.05) {
             self.navigationItem.rightBarButtonItem?.tintColor = .red
         }
