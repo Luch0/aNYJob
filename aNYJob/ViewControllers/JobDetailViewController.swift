@@ -39,6 +39,8 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
     
     @objc private func compareButtonTapped() {
         // TODO: - SEGUE TO COMPARISON
+        let comparisonVC = ComparisonViewController(job: job)
+        navigationController?.pushViewController(comparisonVC, animated: true)
     }
     
     @objc private func applyHereButtonTapped() {

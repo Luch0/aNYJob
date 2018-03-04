@@ -10,25 +10,43 @@ import UIKit
 
 class ComparisonViewController: UIViewController {
     
-    var sampleArray = [Job]() {
+    var sampleArray = [BaseSalary]() {
         didSet {
             comparisonView.comparisonTableView.reloadData()
         }
     }
+    
+    var job: Job
     
     let comparisonView = ComparisonView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loadBaseSalaries()
         // Delegates
         comparisonView.comparisonTableView.dataSource = self
         comparisonView.comparisonTableView.delegate = self
     }
     
+    init(job: Job) {
+        self.job = job
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupView() {
         self.view.addSubview(comparisonView)
         
+    }
+    
+    private func loadBaseSalaries() {
+        BaseSalaryAPIClient.manager.getOnlineBaseSlalaries(with: job.business_title, completionHandler: {
+            self.sampleArray = $0
+        }, errorHandler: { print($0) })
     }
     
 }
@@ -41,12 +59,12 @@ extension ComparisonViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComparisonCell", for: indexPath) as! ComparisonTableViewCell
         
-        let aJob = sampleArray[indexPath.row]
+        let baseSalary = sampleArray[indexPath.row]
         
-        cell.jobNameLabel.text = " \(aJob.title_code_no)"
-        cell.salaryLabel.text = "\(aJob.salary_range_from) - \(aJob.salary_range_to)"
-        cell.agencyNameLabel.text = " \(aJob.agency)"
-        cell.workLocationLabel.text = " \(aJob.work_location): \(aJob.work_location_1)"
+        cell.jobNameLabel.text = "\(baseSalary.title_description)"
+        cell.salaryLabel.text = "$\(baseSalary.base_salary)"
+        cell.agencyNameLabel.text = "\(baseSalary.agency_name)"
+        cell.workLocationLabel.text = "\(baseSalary.work_location_borough ?? "Location N/A")"
         
         return cell
         
