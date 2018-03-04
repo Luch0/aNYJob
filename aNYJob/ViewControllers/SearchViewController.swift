@@ -15,40 +15,66 @@ class SearchViewController: UIViewController {
     
     let searchView = SearchView()
     
-    var jobs = [Job]()
-    
-    var filteredArr = [Job]() {
+    var allJobs = [Job]() {
         didSet {
-            searchView.tableView.reloadData()
+            self.filteredArrToUse = self.allJobs
+        }
+    }
+    var filteredByBoroughArr = [Job]() {
+        didSet {
+            self.filteredArrToUse = self.filteredByBoroughArr
+        }
+    }
+    var filteredByJobTypeArr = [Job]() {
+        didSet {
+            self.filteredArrToUse = self.filteredByJobTypeArr
+        }
+    }
+    var filterBySearchTerm = [Job]() {
+        didSet {
+            self.filteredArrToUse = self.filterBySearchTerm
+        }
+    }
+    var filteredArrToUse = [Job]() {
+        didSet {
+            self.searchView.tableView.reloadData()
         }
     }
     
     var searchterm = "" {
         didSet {
-            JobsAPIClient.manager.getOnlineJobs(with: searchterm, completionHandler: {
-                self.filteredArr = $0
-            }, errorHandler: { print($0) })
+            if searchterm == "" {
+                JobsAPIClient.manager.getAllOnlineJobs(completionHandler: {
+                    self.allJobs = $0
+                }, errorHandler: { print($0) })
+                return
+            }
+            
+            if searchView.boroughSegmentedControl.selectedSegmentIndex <= 0 && searchView.jobTypeSegmentedControl.selectedSegmentIndex <= 0 {
+                JobsAPIClient.manager.getOnlineJobs(with: searchterm, completionHandler: {
+                    self.allJobs = $0
+                }, errorHandler: { print($0) })
+            } else {
+                self.filterBySearchTerm = allJobs.filter{ $0.business_title.lowercased().contains(searchterm.lowercased()) }
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadJobs()
+        loadAllJobs()
         configureNavBar()
         configureSearchView()
     }
     
-    private func loadJobs() {
-        guard let jsonJobs = JobsAPIClient.manager.getJobs(filename: "openJobsNYC", type: "json") else {
-            print("Error loading jobs")
-            return
-        }
-        self.jobs = jsonJobs
-        self.filteredArr = jsonJobs
-    }
-    
     private func configureNavBar() {
         navigationItem.title = "Search"
+    }
+    
+    private func loadAllJobs() {
+        JobsAPIClient.manager.getAllOnlineJobs(completionHandler: {
+            self.allJobs = $0
+        }, errorHandler: { print($0) })
     }
     
     private func configureSearchView() {
@@ -63,27 +89,27 @@ class SearchViewController: UIViewController {
     @objc private func boroughSegmentedControlValueChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            self.filteredArr = self.jobs
+            self.filteredByBoroughArr = self.allJobs
             print("All")
         case 1:
-            self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("queens") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("queens") }
             print("Queens")
         case 2:
-            self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("manhattan") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("manhattan") }
             print("Manhattan")
         case 3:
-            self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("brooklyn") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("brooklyn") }
             print("Brooklyn")
         case 4:
-            self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("bronx") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("bronx") }
             print("Bronx")
         case 5:
-            self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("staten island") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("staten island") }
             print("Staten Island")
         default:
             print("Error")
         }
-        if filteredArr.count > 0 {
+        if filteredByBoroughArr.count > 0 {
             searchView.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }
@@ -92,17 +118,17 @@ class SearchViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             print("All")
-            self.filteredArr = self.jobs
+            self.filteredByJobTypeArr = self.filteredByBoroughArr
         case 1:
             print("Full Time")
-            self.filteredArr = self.jobs.filter{ $0.full_time_part_time_indicator == "F" }
+            self.filteredByJobTypeArr = self.filteredByBoroughArr.filter{ $0.full_time_part_time_indicator == "F" }
         case 2:
             print("Part Time")
-            self.filteredArr = self.jobs.filter{ $0.full_time_part_time_indicator == "P" }
+            self.filteredByJobTypeArr = self.filteredByBoroughArr.filter{ $0.full_time_part_time_indicator == "P" }
         default:
             print("Error")
         }
-        if filteredArr.count > 0 {
+        if filteredByJobTypeArr.count > 0 {
             searchView.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }
@@ -111,12 +137,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredArr.count
+        return filteredArrToUse.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobCell", for: indexPath) as! JobTableViewCell
-        let job = filteredArr[indexPath.row]
+        let job = filteredArrToUse[indexPath.row]
         cell.configureCell(job: job)
         return cell
     }
@@ -124,7 +150,7 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let job = jobs[indexPath.row]
+        let job = filteredArrToUse[indexPath.row]
         let detailViewController = JobDetailViewController(job: job)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
