@@ -211,9 +211,8 @@ extension JobDetailView {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(contentView.snp.top).offset(2)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -221,9 +220,8 @@ extension JobDetailView {
         contentView.addSubview(departmentLabel)
         departmentLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(2)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -231,9 +229,8 @@ extension JobDetailView {
         contentView.addSubview(salaryLabel)
         salaryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(departmentLabel.snp.bottom).offset(2)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -249,9 +246,8 @@ extension JobDetailView {
         contentView.addSubview(shortDescriptionLabel)
         shortDescriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(compareButton.snp.bottom).offset(5)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -267,9 +263,8 @@ extension JobDetailView {
         contentView.addSubview(locationLabel)
         locationLabel.snp.makeConstraints { (make) in
             make.top.equalTo(applyHereButton.snp.bottom).offset(5)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -288,9 +283,8 @@ extension JobDetailView {
         contentView.addSubview(additionalInfoLabel)
         additionalInfoLabel.snp.makeConstraints { (make) in
             make.top.equalTo(mapView.snp.bottom).offset(5)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
@@ -298,9 +292,8 @@ extension JobDetailView {
         contentView.addSubview(jobRequirementsLabel)
         jobRequirementsLabel.snp.makeConstraints { (make) in
             make.top.equalTo(additionalInfoLabel.snp.bottom).offset(5)
-            make.width.equalTo(snp.width)
-            make.leading.equalTo(contentView.snp.leading)
-            make.trailing.equalTo(contentView.snp.trailing)
+            make.width.equalTo(snp.width).offset(-4)
+            make.leading.equalTo(contentView.snp.leading).offset(2)
         }
     }
     
