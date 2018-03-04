@@ -64,31 +64,28 @@ class SearchViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             self.filteredArr = self.jobs
-            print("all")
+            print("All")
         case 1:
             self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("queens") }
-            print("Q")
+            print("Queens")
         case 2:
             self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("manhattan") }
-            print("M")
+            print("Manhattan")
         case 3:
             self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("brooklyn") }
-            print("Broo")
+            print("Brooklyn")
         case 4:
             self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("bronx") }
             print("Bronx")
         case 5:
             self.filteredArr = self.jobs.filter{ $0.work_location.lowercased().contains("staten island") }
-            print("SI")
+            print("Staten Island")
         default:
             print("Error")
         }
-        // 0 All
-        // 1 Queens
-        // 2 Manhattan
-        // 3 Brooklyn
-        // 4 Bronx
-        // 5 SI
+        if filteredArr.count > 0 {
+            searchView.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+        }
     }
     
     @objc private func jobTypeSegmentedControlValueChanged(sender: UISegmentedControl) {
@@ -97,15 +94,17 @@ class SearchViewController: UIViewController {
             print("All")
             self.filteredArr = self.jobs
         case 1:
+            print("Full Time")
             self.filteredArr = self.jobs.filter{ $0.full_time_part_time_indicator == "F" }
         case 2:
+            print("Part Time")
             self.filteredArr = self.jobs.filter{ $0.full_time_part_time_indicator == "P" }
         default:
             print("Error")
         }
-        // 0 All
-        // 1 Fulltime
-        // 2 Parttime
+        if filteredArr.count > 0 {
+            searchView.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+        }
     }
     
 }
