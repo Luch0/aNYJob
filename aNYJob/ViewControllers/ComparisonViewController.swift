@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Charts
 
 class ComparisonViewController: UIViewController {
     
     var sampleArray = [BaseSalary]() {
         didSet {
             comparisonView.comparisonTableView.reloadData()
+            comparisonView.updateBarChart(with: sampleArray)
         }
     }
     
@@ -27,6 +29,7 @@ class ComparisonViewController: UIViewController {
         // Delegates
         comparisonView.comparisonTableView.dataSource = self
         comparisonView.comparisonTableView.delegate = self
+        comparisonView.barChart.delegate = self
     }
     
     init(job: Job) {
@@ -76,6 +79,12 @@ extension ComparisonViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // TODO
+        
+    }
+}
+
+extension ComparisonViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         
     }
 }
