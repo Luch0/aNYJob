@@ -41,6 +41,7 @@
 		DB38150A204B22AF00F15E3D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381508204B22AF00F15E3D /* Job.swift */; };
 		DB38150B204B22AF00F15E3D /* JobsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB381509204B22AF00F15E3D /* JobsAPIClient.swift */; };
 		DBAEA3E0204B2479007870B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259633E204B0138009E0BD2 /* AppDelegate.swift */; };
+		E221FA38204CA24A004C3A35 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221FA37204CA24A004C3A35 /* UserDefaultsHelper.swift */; };
 		E2596347204B0138009E0BD2 /* aNYJob.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2596345204B0138009E0BD2 /* aNYJob.xcdatamodeld */; };
 		E2596349204B0138009E0BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2596348204B0138009E0BD2 /* Assets.xcassets */; };
 		E259634C204B0138009E0BD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E259634A204B0138009E0BD2 /* LaunchScreen.storyboard */; };
@@ -115,6 +116,7 @@
 		DB381506204B17B600F15E3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB381508204B22AF00F15E3D /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Job.swift; path = aNYJob/Models/Job.swift; sourceTree = SOURCE_ROOT; };
 		DB381509204B22AF00F15E3D /* JobsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobsAPIClient.swift; path = aNYJob/Models/JobsAPIClient.swift; sourceTree = SOURCE_ROOT; };
+		E221FA37204CA24A004C3A35 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		E259633B204B0138009E0BD2 /* aNYJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aNYJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259633E204B0138009E0BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2596346204B0138009E0BD2 /* aNYJob.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = aNYJob.xcdatamodel; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				DB381509204B22AF00F15E3D /* JobsAPIClient.swift */,
 				E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */,
 				E2B1F3E0204B2A070037394F /* BaseSalary.swift */,
+				E221FA37204CA24A004C3A35 /* UserDefaultsHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */,
 				DB053CB3204B3E93005B4E5F /* ComparisonView.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
+				E221FA38204CA24A004C3A35 /* UserDefaultsHelper.swift in Sources */,
 				8124807C204B19C500E244AC /* JobDetailView.swift in Sources */,
 				DB053CB7204B3F00005B4E5F /* ComparisonTableViewCell.swift in Sources */,
 				E2CD0CC4204B81D40022731D /* SettingsView.swift in Sources */,
