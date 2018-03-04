@@ -24,5 +24,5 @@ struct BaseSalary: Codable {
     let title_description: String
     let total_ot_paid: String
     let total_other_pay: String
-    let work_location_borough: String
+    let work_location_borough: String?
 }
