@@ -26,15 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchNavigationController = UINavigationController(rootViewController: searchViewController)
         searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
-        let loginVC = LoginVC()
-        let loginNavigationController = UINavigationController(rootViewController: loginVC)
-        loginNavigationController.tabBarItem = UITabBarItem(title: "Login", image: nil, tag: 1)
+        let favoritesViewController = FavoritesViewController()
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+        favoritesNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
         
         let settingsVC = SettingsViewController()
         let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
         settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 2)
         
-        tabBarController.setViewControllers([searchNavigationController, loginNavigationController, settingsNavigationController], animated: true)
+        tabBarController.setViewControllers([searchNavigationController, favoritesNavigationController, settingsNavigationController], animated: true)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
