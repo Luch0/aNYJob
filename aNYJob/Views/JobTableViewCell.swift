@@ -46,7 +46,7 @@ class JobTableViewCell: UITableViewCell {
     }
     
     public func configureCell(job: Job) {
-        jobTitleLabel.text = job.civil_service_title
+        jobTitleLabel.text = job.business_title
         salaryLabel.text = job.salary_range_from + " to " + job.salary_range_to
         locationLabel.text = job.work_location
         fieldLabel.text = job.agency
