@@ -53,6 +53,8 @@
 		E2B1F3DB204B16610037394F /* nycEmployeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B1F3D9204B16610037394F /* nycEmployeeData.json */; };
 		E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E0204B2A070037394F /* BaseSalary.swift */; };
 		E2B1F3E3204B2B150037394F /* BaseSalaryAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */; };
+		E2CD0CC2204B81C10022731D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD0CC1204B81C10022731D /* SettingsViewController.swift */; };
+		E2CD0CC4204B81D40022731D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD0CC3204B81D40022731D /* SettingsView.swift */; };
 		FCD20F9A70AA9AC9D64BE6C6 /* Pods_aNYJobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE55452B95D1560385EDD1C4 /* Pods_aNYJobTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,8 @@
 		E2B1F3D9204B16610037394F /* nycEmployeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nycEmployeeData.json; sourceTree = "<group>"; };
 		E2B1F3E0204B2A070037394F /* BaseSalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalary.swift; sourceTree = "<group>"; };
 		E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalaryAPIClient.swift; sourceTree = "<group>"; };
+		E2CD0CC1204B81C10022731D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E2CD0CC3204B81D40022731D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F719CBE940ECA0FAFD9F3E22 /* Pods_aNYJobUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aNYJobUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -235,6 +239,7 @@
 				DB053CAC204B3E4C005B4E5F /* FavoritesView.swift */,
 				DB053CB2204B3E93005B4E5F /* ComparisonView.swift */,
 				E2B1F3D6204B15D00037394F /* TestView.swift */,
+				E2CD0CC3204B81D40022731D /* SettingsView.swift */,
 				DB3814DE204B100600F15E3D /* CreateAccountView.swift */,
 				DB3814DF204B100600F15E3D /* EmptyStateView.swift */,
 				DB3814E0204B100600F15E3D /* LoginView.swift */,
@@ -251,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B1F3D4204B15BF0037394F /* TestViewController.swift */,
+				E2CD0CC1204B81C10022731D /* SettingsViewController.swift */,
 				DB3814E4204B101100F15E3D /* CreateAccountVC.swift */,
 				DB3814E5204B101200F15E3D /* LoginVC.swift */,
 				81248075204B173100E244AC /* SearchViewController.swift */,
@@ -651,12 +657,14 @@
 				81248078204B174B00E244AC /* SearchView.swift in Sources */,
 				DBAEA3E0204B2479007870B3 /* AppDelegate.swift in Sources */,
 				81248076204B173100E244AC /* SearchViewController.swift in Sources */,
+				E2CD0CC2204B81C10022731D /* SettingsViewController.swift in Sources */,
 				DB38150B204B22AF00F15E3D /* JobsAPIClient.swift in Sources */,
 				E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */,
 				DB053CB3204B3E93005B4E5F /* ComparisonView.swift in Sources */,
 				E2B1F3D3204B15B00037394F /* testServices.swift in Sources */,
 				8124807C204B19C500E244AC /* JobDetailView.swift in Sources */,
 				DB053CB7204B3F00005B4E5F /* ComparisonTableViewCell.swift in Sources */,
+				E2CD0CC4204B81D40022731D /* SettingsView.swift in Sources */,
 				E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */,
 				DB3814EE204B102600F15E3D /* Alert.swift in Sources */,
 				DB381501204B121D00F15E3D /* DatabaseService+Add.swift in Sources */,
