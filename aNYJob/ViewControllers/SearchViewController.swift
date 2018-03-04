@@ -10,6 +10,7 @@
 //https://data.cityofnewyork.us/resource/swhp-yxa4.json?$where=business_title%20like%20%27%25Cle%25%27
 
 import UIKit
+import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
     
@@ -65,6 +66,9 @@ class SearchViewController: UIViewController {
         loadAllJobs()
         configureNavBar()
         configureSearchView()
+        searchView.tableView.emptyDataSetSource = self
+        searchView.tableView.emptyDataSetDelegate = self
+        searchView.tableView.separatorStyle = .none
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -173,6 +177,17 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchterm = searchBar.text!
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchterm = searchBar.text!
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension SearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+       return #imageLiteral(resourceName: "logo2")
     }
 }
 
