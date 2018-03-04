@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let settingsVC = SettingsViewController()
         let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
-        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 2)
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "settings"), tag: 2)
         
         tabBarController.setViewControllers([searchNavigationController, favoritesNavigationController, settingsNavigationController], animated: true)
         

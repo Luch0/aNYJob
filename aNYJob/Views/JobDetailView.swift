@@ -12,18 +12,19 @@ import MapKit
 
 class JobDetailView: UIView {
     
-    lazy var scrollView: UIScrollView = {
+    lazy public var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
     }()
     
-    lazy var contentView: UIView = {
+    lazy public var contentView: UIView = {
         let view = UIView()
         return view
     }()
     
     lazy public var titleLabel: UILabel = {
         let label = UILabel()
+        label.font = Stylesheet.Fonts.PostTitle
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -31,6 +32,7 @@ class JobDetailView: UIView {
     
     lazy public var departmentLabel: UILabel = {
         let label = UILabel()
+        label.font = Stylesheet.Fonts.Bold
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -38,6 +40,7 @@ class JobDetailView: UIView {
     
     lazy public var salaryLabel: UILabel = {
         let label = UILabel()
+        label.font = Stylesheet.Fonts.Bold
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -45,7 +48,8 @@ class JobDetailView: UIView {
     
     lazy public var shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.font = Stylesheet.Fonts.Regular
+        label.numberOfLines = 4
         label.lineBreakMode = .byWordWrapping
         return label
     }()
@@ -59,10 +63,9 @@ class JobDetailView: UIView {
         return button
     }()
     
-    
-    
     lazy public var locationLabel: UILabel = {
         let label = UILabel()
+        label.font = Stylesheet.Fonts.Bold
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -71,6 +74,7 @@ class JobDetailView: UIView {
     // MapKit
     lazy public var mapView: MKMapView = {
         let mapView = MKMapView()
+        mapView.isScrollEnabled = false
         return mapView
     }()
     
@@ -78,14 +82,16 @@ class JobDetailView: UIView {
     
     lazy public var additionalInfoLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.font = Stylesheet.Fonts.Regular
+        label.numberOfLines = 4
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     lazy public var jobRequirementsLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.font = Stylesheet.Fonts.Regular
+        label.numberOfLines = 4
         label.lineBreakMode = .byWordWrapping
         return label
     }()
@@ -123,7 +129,7 @@ class JobDetailView: UIView {
     public func configureScrollView(job: Job) {
         titleLabel.text = job.business_title
         departmentLabel.text = job.division_work_unit
-        salaryLabel.text = job.salary_range_from + " to " + job.salary_range_to
+        salaryLabel.text = job.salary_range_from + "  -  " + job.salary_range_to
         shortDescriptionLabel.text = job.job_description
         locationLabel.text = job.work_location
         additionalInfoLabel.text = job.additional_information
@@ -196,47 +202,47 @@ extension JobDetailView {
     private func setupTitleLabel() {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView.snp.top)
+            make.top.equalTo(contentView.snp.top).offset(2)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-//            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupDepartmentLabel() {
         contentView.addSubview(departmentLabel)
         departmentLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(2)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupSalaryLabel() {
         contentView.addSubview(salaryLabel)
         salaryLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(departmentLabel.snp.bottom)
+            make.top.equalTo(departmentLabel.snp.bottom).offset(2)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupShortDescriptionLabel() {
         contentView.addSubview(shortDescriptionLabel)
         shortDescriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(salaryLabel.snp.bottom)
+            make.top.equalTo(salaryLabel.snp.bottom).offset(5)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupApplyHereButton() {
         contentView.addSubview(applyHereButton)
         applyHereButton.snp.makeConstraints { (make) in
-            make.top.equalTo(shortDescriptionLabel.snp.bottom)
+            make.top.equalTo(shortDescriptionLabel.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
         }
     }
@@ -244,48 +250,48 @@ extension JobDetailView {
     private func setupLocationLabel() {
         contentView.addSubview(locationLabel)
         locationLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(applyHereButton.snp.bottom)
+            make.top.equalTo(applyHereButton.snp.bottom).offset(5)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupMapView() {
         contentView.addSubview(mapView)
         mapView.snp.makeConstraints { (make) in
-            make.top.equalTo(locationLabel.snp.bottom)
+            make.top.equalTo(locationLabel.snp.bottom).offset(2)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
             make.centerX.equalTo(contentView.snp.centerX)
-            make.height.equalTo(200)
+            make.height.equalTo(mapView.snp.width)
         }
     }
     
     private func setupAdditionalInfoLabel() {
         contentView.addSubview(additionalInfoLabel)
         additionalInfoLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(mapView.snp.bottom)
+            make.top.equalTo(mapView.snp.bottom).offset(5)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupJobRequirementLabel() {
         contentView.addSubview(jobRequirementsLabel)
         jobRequirementsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(additionalInfoLabel.snp.bottom)
+            make.top.equalTo(additionalInfoLabel.snp.bottom).offset(5)
             make.width.equalTo(snp.width)
             make.leading.equalTo(contentView.snp.leading)
-            //            make.trailing.equalTo(contentView.snp.trailing)
+            make.trailing.equalTo(contentView.snp.trailing)
         }
     }
     
     private func setupDidYouApplyButton() {
         contentView.addSubview(didYouApplyButton)
         didYouApplyButton.snp.makeConstraints { (make) in
-            make.top.equalTo(jobRequirementsLabel.snp.bottom)
+            make.top.equalTo(jobRequirementsLabel.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
         }
     }
@@ -293,9 +299,9 @@ extension JobDetailView {
     private func setupShareJobButton() {
         contentView.addSubview(shareJobButton)
         shareJobButton.snp.makeConstraints { (make) in
-            make.top.equalTo(didYouApplyButton.snp.bottom)
+            make.top.equalTo(didYouApplyButton.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
-            make.bottom.equalTo(contentView.snp.bottom)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-2)
         }
     }
 }
