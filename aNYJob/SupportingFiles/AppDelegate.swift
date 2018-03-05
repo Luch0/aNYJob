@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = UIColor(red: 0.949, green: 0.667, blue: 0.302, alpha: 1.00)
         
         let searchViewController = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchViewController)

@@ -43,7 +43,7 @@ class ComparisonView: UIView {
         let tv = UITableView()
         //create and register a cell
         tv.register(ComparisonTableViewCell.self, forCellReuseIdentifier: "ComparisonCell")
-        tv.backgroundColor = .clear
+        tv.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
         return tv
     }()
     

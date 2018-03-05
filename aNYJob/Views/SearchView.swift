@@ -38,6 +38,7 @@ class SearchView: UIView {
     
     lazy public var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
         tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "jobCell")
         return tableView
     }()
