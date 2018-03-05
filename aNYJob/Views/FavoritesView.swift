@@ -15,7 +15,8 @@ class FavoritesView: UIView {
         let tv = UITableView()
         //create and register a cell
         tv.register(JobTableViewCell.self, forCellReuseIdentifier: "JobCell")
-        tv.backgroundColor = .clear
+        tv.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
+        tv.separatorColor = .clear
         return tv
     }()
     

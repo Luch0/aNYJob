@@ -192,7 +192,7 @@ class JobDetailView: UIView {
     public func configureScrollView(job: Job) {
         titleLabel.text = job.business_title
         departmentLabel.text = job.division_work_unit
-        salaryLabel.text = job.salary_range_from + "  -  " + job.salary_range_to
+        salaryLabel.text = "$\(job.salary_range_from)  -  $\(job.salary_range_to)"
         shortDescriptionLabel.text = job.job_description
         locationLabel.text = job.work_location
         additionalInfoLabel.text = job.additional_information

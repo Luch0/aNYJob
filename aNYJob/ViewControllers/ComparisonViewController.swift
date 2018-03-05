@@ -84,7 +84,7 @@ extension ComparisonViewController: UITableViewDataSource {
         cell.salaryLabel.text = "$\(baseSalary.base_salary)"
         cell.agencyNameLabel.text = "\(baseSalary.agency_name)"
         cell.workLocationLabel.text = "\(baseSalary.work_location_borough ?? "Location N/A")"
-        
+        cell.selectionStyle = .none
         return cell
         
     }
