@@ -76,7 +76,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         
         mailComposerVC.setToRecipients(["example@gmail.com"])
         mailComposerVC.setSubject("Sending you an in-app e-mail with aNYJob!")
-        mailComposerVC.setMessageBody("Sending e-mails with Access NY Job is the perfect user experience!", isHTML: false)
+        mailComposerVC.setMessageBody("Sending e-mails with Access NY Job is the perfect user experience! You should checkout this job: https://a127-jobs.nyc.gov/index_new.html?keyword=\(job.job_id)", isHTML: false)
         
         return mailComposerVC
     }
