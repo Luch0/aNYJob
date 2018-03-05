@@ -15,7 +15,7 @@ class ComparisonViewController: UIViewController {
     var salaries = [BaseSalary]() {
         didSet {
             comparisonView.comparisonTableView.reloadData()
-            comparisonView.comparisonTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.2))
+            comparisonView.comparisonTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.5))
             comparisonView.updateBarChart(with: salaries)
         }
     }

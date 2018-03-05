@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
     var filteredArrToUse = [Job]() {
         didSet {
             self.searchView.tableView.reloadData()
-            self.searchView.tableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.2))
+            self.searchView.tableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.5))
         }
     }
     

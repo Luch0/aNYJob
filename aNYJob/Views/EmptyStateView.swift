@@ -23,7 +23,7 @@ class EmptyStateView: UIView {
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = #imageLiteral(resourceName: "logo2")
+        imageView.image = #imageLiteral(resourceName: "logo2Trans")
         return imageView
     }()
     
