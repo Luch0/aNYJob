@@ -24,6 +24,7 @@ class FavoritesViewController: UIViewController {
         // Delegates
         favoritesView.jobTableView.dataSource = self
         favoritesView.jobTableView.delegate = self
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,7 @@ extension FavoritesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as! JobTableViewCell
         let job = jobs[indexPath.row]
         cell.configureCell(job: job)
+
         return cell
     }
 }

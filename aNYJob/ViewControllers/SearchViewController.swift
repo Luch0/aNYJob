@@ -69,6 +69,7 @@ class SearchViewController: UIViewController {
         searchView.tableView.emptyDataSetSource = self
         searchView.tableView.emptyDataSetDelegate = self
         searchView.tableView.separatorStyle = .none
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,6 +163,7 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobCell", for: indexPath) as! JobTableViewCell
         let job = filteredArrToUse[indexPath.row]
         cell.configureCell(job: job)
+        cell.selectionStyle = .none
         return cell
     }
 }
@@ -169,6 +171,7 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let job = filteredArrToUse[indexPath.row]
+        
         let detailViewController = JobDetailViewController(job: job)
         navigationController?.pushViewController(detailViewController, animated: true)
     }

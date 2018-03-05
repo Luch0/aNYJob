@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
         view.addSubview(settingsView)
         configureNavBar()
         addButtonActions()
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.933, green: 0.494, blue: 0.212, alpha: 1.00)
     }
     
     private func configureNavBar() {

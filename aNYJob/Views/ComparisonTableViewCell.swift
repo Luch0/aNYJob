@@ -67,6 +67,7 @@ class ComparisonTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupAndConstrainObjects()
+        self.backgroundColor = .clear
     }
     
     private func setupAndConstrainObjects(){
