@@ -23,9 +23,7 @@ class LoginVC: UIViewController {
         loginView.signInButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         loginView.createAccountButton.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
         loginView.forgotPasswordButton.addTarget(self, action: #selector(resetPassword), for: .touchUpInside)
-        loginView.facebookSignInButton.addTarget(self, action: #selector(facebookButtonPressed), for: .touchUpInside)
-        loginView.twitterSignInButton.addTarget(self, action: #selector(twitterButtonPressed), for: .touchUpInside)
-        
+        AuthUserService.manager.dismissDelegate = self
         setupViews()
         animateView()
     }
@@ -33,8 +31,6 @@ class LoginVC: UIViewController {
     private func animateView() {
         UIView.animate(withDuration: 2) {
             self.loginView.titleLabel.alpha = 1
-            self.loginView.facebookSignInButton.alpha = 1
-            self.loginView.twitterSignInButton.alpha = 1
             self.loginView.emailIconImageView.alpha = 1
             self.loginView.emailTextField.alpha = 1
             self.loginView.passwordIconImageView.alpha = 1
@@ -98,14 +94,6 @@ class LoginVC: UIViewController {
         AuthUserService.manager.delegate = self
         AuthUserService.manager.login(withEmail: email!, andPassword: password!)
         
-    }
-    
-    @objc func twitterButtonPressed() {
-        print("Twitter Button Pressed")
-    }
-    
-    @objc func facebookButtonPressed() {
-        print("Facebook Button Pressed")
     }
     
     @objc func createAccountButtonPressed() {
@@ -195,5 +183,12 @@ extension LoginVC: AuthUserServiceDelegate {
         Alert.addAction(withTitle: "OK", style: .default, andHandler: nil, to: alert)
         self.present(alert, animated: true, completion: nil)
     }
+}
+extension LoginVC: DismissDelegate {
+    func dismissViewController() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
