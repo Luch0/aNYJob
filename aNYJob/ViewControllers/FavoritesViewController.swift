@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import TableFlip
 
 class FavoritesViewController: UIViewController {
 
     var jobs = [Job]() {
         didSet {
             favoritesView.jobTableView.reloadData()
+            favoritesView.jobTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.2))
         }
     }
     
@@ -51,6 +53,7 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as! JobTableViewCell
         let job = jobs[indexPath.row]
+        cell.selectionStyle = .none
         cell.configureCell(job: job)
 
         return cell

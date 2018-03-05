@@ -9,38 +9,28 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>0</integer>
 		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>1</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>IQKeyboardManagerSwift.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>2</integer>
-		</dict>
-		<key>Kingfisher.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-aNYJob.xcscheme</key>
 		<dict>
@@ -75,7 +65,14 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>10</integer>
+		</dict>
+		<key>TableFlip.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

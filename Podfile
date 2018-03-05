@@ -15,7 +15,8 @@ target 'aNYJob' do
   pod 'DZNEmptyDataSet'
   pod 'Charts'
   pod 'SwiftyButton'
-
+  pod 'TableFlip'
+  
   target 'aNYJobTests' do
     inherit! :search_paths
     # Pods for testing
