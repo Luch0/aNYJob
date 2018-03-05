@@ -28,14 +28,14 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
 
     private func configureNavBar() {
         navigationItem.title = job.civil_service_title
-        let favoriteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
+        let favoriteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "star"), style: .plain, target: self, action: #selector(heartButtonTapped))
         navigationItem.rightBarButtonItem = favoriteButton
     }
     
     @objc private func heartButtonTapped() {
         DatabaseService.manager.addSavedJob(job)
-        UIView.animate(withDuration: 0.05) {
-            self.navigationItem.rightBarButtonItem?.tintColor = .red
+        UIView.animate(withDuration: 0.1) {
+            self.navigationItem.rightBarButtonItem?.tintColor = .yellow
         }
     }
     
