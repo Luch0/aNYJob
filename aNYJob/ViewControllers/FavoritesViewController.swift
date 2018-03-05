@@ -10,7 +10,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
-    var sampleArray = [Job]() {
+    var jobs = [Job]() {
         didSet {
             favoritesView.jobTableView.reloadData()
         }
@@ -30,28 +30,28 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(animated)
         DatabaseService.manager.getAllSavedJobs { (jobs) in
             if let jobs = jobs {
-                self.sampleArray = jobs
+                self.jobs = jobs
             }
         }
     }
     
     private func setupView() {
         self.view.addSubview(favoritesView)
-        
+        navigationItem.title = "Favorites"
     }
 
 }
 
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleArray.count
+        return jobs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as! JobTableViewCell
         
-        let aJob = sampleArray[indexPath.row]
+        let aJob = jobs[indexPath.row]
         
         cell.jobTitleLabel.text = " \(aJob.title_code_no)"
         cell.salaryLabel.text = "\(aJob.salary_range_from) - \(aJob.salary_range_to)"
@@ -65,9 +65,8 @@ extension FavoritesViewController: UITableViewDataSource {
 
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // TODO
-        
+        let detailViewController = JobDetailViewController(job: jobs[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

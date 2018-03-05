@@ -186,8 +186,8 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-       return #imageLiteral(resourceName: "logo2")
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+        return EmptyStateView(emptyText: "No job information to display")
     }
 }
 
