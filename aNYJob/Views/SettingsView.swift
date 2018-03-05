@@ -8,22 +8,44 @@
 
 import UIKit
 import SnapKit
+import SwiftyButton
 
 class SettingsView: UIView {
     
-    lazy public var addAddressButton: UIButton = {
-        let button = UIButton()
+    let buttonColor = UIColor(red: 52 / 255, green: 152 / 255, blue: 219 / 255, alpha: 1)
+    let shadowColor = UIColor(red: 41 / 255, green: 128 / 255, blue: 185 / 255, alpha: 1)
+    
+//    lazy public var addAddressButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Add Address", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        return button
+//    }()
+    
+    lazy public var addAddressButton: PressableButton = {
+        let button = PressableButton()
         button.setTitle("Add Address", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
     
-    lazy public var logoutButton: UIButton = {
-        let button = UIButton()
+//    lazy public var logoutButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Logout", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        return button
+//    }()
+    
+    
+    lazy public var logoutButton: PressableButton = {
+        let button = PressableButton()
         button.setTitle("Logout", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
+
 
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -51,6 +73,7 @@ class SettingsView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.width.equalTo(safeAreaLayoutGuide.snp.width)
             make.centerX.equalTo(safeAreaLayoutGuide.snp.centerX)
+            make.height.equalTo(safeAreaLayoutGuide.snp.height).multipliedBy(0.07)
         }
     }
     
@@ -60,6 +83,7 @@ class SettingsView: UIView {
             make.top.equalTo(addAddressButton.snp.bottom)
             make.width.equalTo(safeAreaLayoutGuide.snp.width)
             make.centerX.equalTo(safeAreaLayoutGuide.snp.centerX)
+            make.height.equalTo(addAddressButton.snp.height)
         }
     }
 

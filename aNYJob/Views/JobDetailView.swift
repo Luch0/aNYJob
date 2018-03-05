@@ -9,8 +9,12 @@
 import UIKit
 import SnapKit
 import MapKit
+import SwiftyButton
 
 class JobDetailView: UIView {
+    
+    let buttonColor = UIColor(red: 52 / 255, green: 152 / 255, blue: 219 / 255, alpha: 1)
+    let shadowColor = UIColor(red: 41 / 255, green: 128 / 255, blue: 185 / 255, alpha: 1)
     
     lazy public var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -46,10 +50,22 @@ class JobDetailView: UIView {
         return label
     }()
     
-    lazy public var compareButton: UIButton = {
-        let button = UIButton()
+//    lazy public var compareButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Compare to similar jobs", for: .normal)
+//        button.layer.cornerRadius = 5.0
+//        button.layer.borderColor = UIColor.red.cgColor
+//        button.layer.borderWidth = 1.5
+//        button.backgroundColor = UIColor.blue
+//        button.tintColor = UIColor.white
+//        return button
+//    }()
+    
+    lazy public var compareButton: PressableButton = {
+        let button = PressableButton()
         button.setTitle("Compare to similar jobs", for: .normal)
-        button.backgroundColor = .red
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
     
@@ -63,10 +79,22 @@ class JobDetailView: UIView {
     
     
     // APPLY HERE BUTTON
-    lazy public var applyHereButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Apply Here", for: .normal)
-        button.backgroundColor = .red
+//    lazy public var applyHereButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Apply Here", for: .normal)
+//        button.layer.cornerRadius = 5.0
+//        button.layer.borderColor = UIColor.white.cgColor
+//        button.layer.borderWidth = 1.5
+//        button.backgroundColor = UIColor.green
+//        button.tintColor = UIColor.white
+//        return button
+//    }()
+    
+    lazy public var applyHereButton: PressableButton = {
+        let button = PressableButton()
+        button.setTitle("Apply Here!", for: .normal)
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
     
@@ -104,17 +132,41 @@ class JobDetailView: UIView {
     }()
     
     // BUTTONS
-    lazy public var didYouApplyButton: UIButton = {
-        let button = UIButton()
+//    lazy public var didYouApplyButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Did you apply to this job?", for: .normal)
+//        button.layer.cornerRadius = 5.0
+//        button.layer.borderColor = UIColor.red.cgColor
+//        button.layer.borderWidth = 1.5
+//        button.backgroundColor = UIColor.blue
+//        button.tintColor = UIColor.white
+//        return button
+//    }()
+    
+    lazy public var didYouApplyButton: PressableButton = {
+        let button = PressableButton()
         button.setTitle("Did you apply to this job?", for: .normal)
-        button.backgroundColor = .red
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
     
-    lazy public var shareJobButton: UIButton = {
-        let button = UIButton()
+//    lazy public var shareJobButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Share Job", for: .normal)
+//        button.layer.cornerRadius = 5.0
+//        button.layer.borderColor = UIColor.red.cgColor
+//        button.layer.borderWidth = 1.5
+//        button.backgroundColor = UIColor.blue
+//        button.tintColor = UIColor.white
+//        return button
+//    }()
+    
+    lazy public var shareJobButton: PressableButton = {
+        let button = PressableButton()
         button.setTitle("Share Job", for: .normal)
-        button.backgroundColor = .red
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.colors = .init(button: buttonColor, shadow: shadowColor)
         return button
     }()
 
@@ -131,6 +183,10 @@ class JobDetailView: UIView {
     private func commonInit() {
         backgroundColor = .white
         setupViews()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     public func configureScrollView(job: Job) {
@@ -239,6 +295,8 @@ extension JobDetailView {
         compareButton.snp.makeConstraints { (make) in
             make.top.equalTo(salaryLabel.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
+            make.width.equalTo(safeAreaLayoutGuide.snp.width).multipliedBy(0.65)
+            make.height.equalTo(safeAreaLayoutGuide.snp.height).multipliedBy(0.07)
         }
     }
     
@@ -256,6 +314,8 @@ extension JobDetailView {
         applyHereButton.snp.makeConstraints { (make) in
             make.top.equalTo(shortDescriptionLabel.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
+            make.width.equalTo(compareButton.snp.width)
+            make.height.equalTo(compareButton.snp.height)
         }
     }
     
@@ -302,6 +362,9 @@ extension JobDetailView {
         didYouApplyButton.snp.makeConstraints { (make) in
             make.top.equalTo(jobRequirementsLabel.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
+            //make.width.equalTo(safeAreaLayoutGuide.snp.width).multipliedBy(0.55)
+            make.width.equalTo(compareButton.snp.width)
+            make.height.equalTo(compareButton.snp.height)
         }
     }
     
@@ -311,6 +374,9 @@ extension JobDetailView {
             make.top.equalTo(didYouApplyButton.snp.bottom).offset(5)
             make.centerX.equalTo(contentView.snp.centerX)
             make.bottom.equalTo(contentView.snp.bottom).offset(-2)
+            //make.width.equalTo(safeAreaLayoutGuide.snp.width).multipliedBy(0.25)
+            make.width.equalTo(compareButton.snp.width)
+            make.height.equalTo(compareButton.snp.height)
         }
     }
 }
