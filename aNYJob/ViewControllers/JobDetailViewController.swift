@@ -21,9 +21,16 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         jobDetailView.configureScrollView(job: job)
         configureNavBar()
         DatabaseService.manager.showAlertDelegate = self
+        setupButtons()
+    }
+    
+    private func setupButtons() {
         jobDetailView.shareJobButton.addTarget(self, action: #selector(emailShare), for: .touchUpInside)
         jobDetailView.compareButton.addTarget(self, action: #selector(compareButtonTapped), for: .touchUpInside)
         jobDetailView.applyHereButton.addTarget(self, action: #selector(applyHereButtonTapped), for: .touchUpInside)
+        jobDetailView.moreDescriptionButton.addTarget(self, action: #selector(moreDescriptionButtonTapped), for: .touchUpInside)
+        jobDetailView.moreAdditionInfoButton.addTarget(self, action: #selector(moreAdditionalInfoButtonTapped), for: .touchUpInside)
+        jobDetailView.moreJobRequirementsButton.addTarget(self, action: #selector(moreJobRequirementsButtonTapped), for: .touchUpInside)
     }
 
     private func configureNavBar() {
@@ -49,6 +56,27 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
         let url = "https://a127-jobs.nyc.gov/index_new.html?keyword=\(job.job_id)"
         let webViewController = WebViewController(url: url)
         navigationController?.pushViewController(webViewController, animated: true)
+    }
+    
+    @objc private func moreDescriptionButtonTapped() {
+        UIView.animate(withDuration: 0.2) {
+            self.jobDetailView.moreDescriptionButton.removeFromSuperview()
+            self.jobDetailView.shortDescriptionLabel.numberOfLines = 0
+        }
+    }
+    
+    @objc private func moreAdditionalInfoButtonTapped() {
+        UIView.animate(withDuration: 0.2) {
+            self.jobDetailView.moreAdditionInfoButton.removeFromSuperview()
+            self.jobDetailView.additionalInfoLabel.numberOfLines = 0
+        }
+    }
+    
+    @objc private func moreJobRequirementsButtonTapped() {
+        UIView.animate(withDuration: 0.2) {
+            self.jobDetailView.moreJobRequirementsButton.removeFromSuperview()
+            self.jobDetailView.jobRequirementsLabel.numberOfLines = 0
+        }
     }
     
     init(job: Job) {

@@ -90,6 +90,14 @@ class JobDetailView: UIView {
 //        return button
 //    }()
     
+    lazy public var moreDescriptionButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("more", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.backgroundColor = .white
+        return button
+    }()
+    
     lazy public var applyHereButton: PressableButton = {
         let button = PressableButton()
         button.setTitle("Apply Here!", for: .normal)
@@ -123,12 +131,28 @@ class JobDetailView: UIView {
         return label
     }()
     
+    lazy public var moreAdditionInfoButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("more", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.backgroundColor = .white
+        return button
+    }()
+    
     lazy public var jobRequirementsLabel: UILabel = {
         let label = UILabel()
         label.font = Stylesheet.Fonts.Regular
         label.numberOfLines = 4
         label.lineBreakMode = .byWordWrapping
         return label
+    }()
+    
+    lazy public var moreJobRequirementsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("more", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.backgroundColor = .white
+        return button
     }()
     
     // BUTTONS
@@ -244,6 +268,9 @@ extension JobDetailView {
         setupJobRequirementLabel()
         setupDidYouApplyButton()
         setupShareJobButton()
+        setupMoreDescriptionButton()
+        //setupMoreAdditionalInfoButton()
+        setupMoreJobRequirementsButton()
     }
     
     private func setupScrollView() {
@@ -379,6 +406,31 @@ extension JobDetailView {
             make.height.equalTo(compareButton.snp.height)
         }
     }
+    
+    private func setupMoreDescriptionButton() {
+        contentView.addSubview(moreDescriptionButton)
+        moreDescriptionButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(shortDescriptionLabel.snp.bottom)
+            make.trailing.equalTo(shortDescriptionLabel.snp.trailing)
+        }
+    }
+    
+    private func setupMoreAdditionalInfoButton() {
+        contentView.addSubview(moreAdditionInfoButton)
+        moreAdditionInfoButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(additionalInfoLabel.snp.bottom)
+            make.trailing.equalTo(additionalInfoLabel.snp.trailing)
+        }
+    }
+    
+    private func setupMoreJobRequirementsButton() {
+        contentView.addSubview(moreJobRequirementsButton)
+        moreJobRequirementsButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(jobRequirementsLabel.snp.bottom)
+            make.trailing.equalTo(jobRequirementsLabel.snp.trailing)
+        }
+    }
+    
 }
 
 extension JobDetailView: MKMapViewDelegate {
