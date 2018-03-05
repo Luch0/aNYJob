@@ -24,6 +24,7 @@ class ComparisonTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = "Pirate"
         Stylesheet.Objects.Labels.JobLabel.style(label: lb)
+        lb.font = Stylesheet.Fonts.PostTitle
         return lb
     }()
     
@@ -32,6 +33,7 @@ class ComparisonTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = "$99,999"
         Stylesheet.Objects.Labels.SalaryLabel.style(label: lb)
+        lb.font = Stylesheet.Fonts.PostTitle
         return lb
     }()
     
