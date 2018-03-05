@@ -59,6 +59,14 @@ class CreateAccountView: UIView {
         return button
     }()
     
+    //cancel button
+    lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        Stylesheet.Objects.Buttons.ClearButton.style(button: button)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -70,7 +78,7 @@ class CreateAccountView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.00)
+        backgroundColor = UIColor(red: 0.267, green: 0.612, blue: 0.843, alpha: 1.00)
         setupObjects()
         setupViews()
     }
@@ -82,6 +90,7 @@ class CreateAccountView: UIView {
         self.addSubview(emailTextField)
         self.addSubview(statusLabel)
         self.addSubview(createAccountButton)
+        self.addSubview(cancelButton)
     }
     
     private func setupViews() {
@@ -114,6 +123,13 @@ class CreateAccountView: UIView {
         
         createAccountButton.snp.makeConstraints { (make) in
             make.top.equalTo(addressTextField.snp.bottom).offset(20)
+            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
+            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.ButtonWidthMult)
+            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(Stylesheet.ConstraintSizes.ButtonHeightMult)
+        }
+        
+        cancelButton.snp.makeConstraints { (make) in
+            make.top.equalTo(createAccountButton.snp.bottom).offset(20)
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(Stylesheet.ConstraintSizes.ButtonWidthMult)
             make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(Stylesheet.ConstraintSizes.ButtonHeightMult)

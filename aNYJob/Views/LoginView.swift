@@ -30,24 +30,6 @@ class LoginView: UIView {
         return stl
     }()
     
-    lazy var facebookSignInButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("FaceBook (Coming Soon)", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.263, green: 0.353, blue: 0.576, alpha: 1.00)
-        button.alpha = 0 // for animation
-        return button
-    }()
-    
-    lazy var twitterSignInButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Twitter (Coming Soon)", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.325, green: 0.690, blue: 0.875, alpha: 1.00)
-        button.alpha = 0 // for animation
-        return button
-    }()
-    
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.layer.shadowColor = UIColor.gray.cgColor
@@ -166,8 +148,6 @@ class LoginView: UIView {
     private func setupObjects() {
         addSubview(loginImageView)
         addSubview(titleLabel)
-        addSubview(facebookSignInButton)
-        addSubview(twitterSignInButton)
         addSubview(emailIconImageView)
         addSubview(emailTextField)
         addSubview(passwordIconImageView)
@@ -189,19 +169,6 @@ class LoginView: UIView {
             make.top.equalTo(loginImageView.snp.bottom)
             make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
-        }
-        
-        facebookSignInButton.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY).multipliedBy(1.8)
-            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
-            make.width.equalTo(self.safeAreaLayoutGuide.snp.width).multipliedBy(0.8)
-            make.height.equalTo(self.safeAreaLayoutGuide.snp.height).multipliedBy(0.08)
-        }
-        
-        twitterSignInButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(facebookSignInButton.snp.top).offset(-10)
-            make.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
-            make.width.height.equalTo(facebookSignInButton)
         }
         
         emailIconImageView.snp.makeConstraints { (make) in

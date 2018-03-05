@@ -13,6 +13,11 @@ typealias DisplayNameTaken = Bool
 
 /** This API client is responsible for logging the user in and creating accounts in the Firebase database.
  */
+
+protocol DismissDelegate: class {
+    func dismissViewController()
+}
+
 class AuthUserService: NSObject {
     private override init() {
         super.init()
@@ -23,6 +28,7 @@ class AuthUserService: NSObject {
     static let manager = AuthUserService()
     private var auth: Auth!
     weak public var delegate: AuthUserServiceDelegate?
+    weak var dismissDelegate: DismissDelegate?
     
     //you should generate current user profile using getUserProfile func
     /**
@@ -48,6 +54,7 @@ class AuthUserService: NSObject {
                     self.delegate?.didLogin!(self, userProfile: userProfile)
                 })
                 print("Logged in")
+                self.dismissDelegate?.dismissViewController()
             }
         }
     }

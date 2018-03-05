@@ -50,8 +50,6 @@
 		E2B1F3D3204B15B00037394F /* testServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D2204B15B00037394F /* testServices.swift */; };
 		E2B1F3D5204B15BF0037394F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D4204B15BF0037394F /* TestViewController.swift */; };
 		E2B1F3D7204B15D00037394F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3D6204B15D00037394F /* TestView.swift */; };
-		E2B1F3DA204B16610037394F /* openJobsNYC.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B1F3D8204B16600037394F /* openJobsNYC.json */; };
-		E2B1F3DB204B16610037394F /* nycEmployeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B1F3D9204B16610037394F /* nycEmployeeData.json */; };
 		E2B1F3E1204B2A070037394F /* BaseSalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E0204B2A070037394F /* BaseSalary.swift */; };
 		E2B1F3E3204B2B150037394F /* BaseSalaryAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */; };
 		E2CD0CC2204B81C10022731D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD0CC1204B81C10022731D /* SettingsViewController.swift */; };
@@ -132,8 +130,6 @@
 		E2B1F3D2204B15B00037394F /* testServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testServices.swift; sourceTree = "<group>"; };
 		E2B1F3D4204B15BF0037394F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E2B1F3D6204B15D00037394F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		E2B1F3D8204B16600037394F /* openJobsNYC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = openJobsNYC.json; sourceTree = "<group>"; };
-		E2B1F3D9204B16610037394F /* nycEmployeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nycEmployeeData.json; sourceTree = "<group>"; };
 		E2B1F3E0204B2A070037394F /* BaseSalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalary.swift; sourceTree = "<group>"; };
 		E2B1F3E2204B2B150037394F /* BaseSalaryAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSalaryAPIClient.swift; sourceTree = "<group>"; };
 		E2CD0CC1204B81C10022731D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -310,8 +306,6 @@
 		E259633D204B0138009E0BD2 /* aNYJob */ = {
 			isa = PBXGroup;
 			children = (
-				E2B1F3D9204B16610037394F /* nycEmployeeData.json */,
-				E2B1F3D8204B16600037394F /* openJobsNYC.json */,
 				DB381505204B125000F15E3D /* Models */,
 				DBADFFB3204B0EC000644A56 /* Services */,
 				DBADFFB2204B0EB200644A56 /* ViewControllers */,
@@ -468,9 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2B1F3DB204B16610037394F /* nycEmployeeData.json in Resources */,
 				E259634C204B0138009E0BD2 /* LaunchScreen.storyboard in Resources */,
-				E2B1F3DA204B16610037394F /* openJobsNYC.json in Resources */,
 				E2596349204B0138009E0BD2 /* Assets.xcassets in Resources */,
 				DB381507204B17B600F15E3D /* GoogleService-Info.plist in Resources */,
 			);

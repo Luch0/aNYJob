@@ -11,10 +11,16 @@ import Charts
 
 class ComparisonViewController: UIViewController {
     
-    var sampleArray = [BaseSalary]() {
+    var salaries = [BaseSalary]() {
         didSet {
             comparisonView.comparisonTableView.reloadData()
-            comparisonView.updateBarChart(with: sampleArray)
+            comparisonView.updateBarChart(with: salaries)
+        }
+    }
+    
+    var sortedArray = [BaseSalary]() {
+        didSet {
+            comparisonView.updateBarChart(with: sortedArray)
         }
     }
     
@@ -26,10 +32,20 @@ class ComparisonViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loadBaseSalaries()
+        configureNavBar()
         // Delegates
         comparisonView.comparisonTableView.dataSource = self
         comparisonView.comparisonTableView.delegate = self
         comparisonView.barChart.delegate = self
+    }
+    
+    private func configureNavBar() {
+        let sortButton = UIBarButtonItem(image: #imageLiteral(resourceName: "decline"), style: .plain, target: self, action: #selector(sortButtonTapped))
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    @objc private func sortButtonTapped() {
+        sortedArray = salaries[0...50].sorted(){ Double($0.base_salary)! > Double($1.base_salary)! }
     }
     
     init(job: Job) {
@@ -48,21 +64,21 @@ class ComparisonViewController: UIViewController {
     
     private func loadBaseSalaries() {
         BaseSalaryAPIClient.manager.getOnlineBaseSlalaries(with: job.civil_service_title, completionHandler: {
-            self.sampleArray = $0
+            self.salaries = $0
         }, errorHandler: { print($0) })
     }
     
 }
 extension ComparisonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleArray.count
+        return salaries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComparisonCell", for: indexPath) as! ComparisonTableViewCell
         
-        let baseSalary = sampleArray[indexPath.row]
+        let baseSalary = salaries[indexPath.row]
         
         cell.jobNameLabel.text = "\(baseSalary.title_description)"
         cell.salaryLabel.text = "$\(baseSalary.base_salary)"

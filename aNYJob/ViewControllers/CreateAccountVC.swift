@@ -26,6 +26,11 @@ class CreateAccountVC: UIViewController {
         
         //Action for Create Account Button
         createAccountView.createAccountButton.addTarget(self, action: #selector(newAccountFunc), for: .touchUpInside)
+        createAccountView.cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+    }
+    
+    @objc private func cancel() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func newAccountFunc() {
