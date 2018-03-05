@@ -55,9 +55,15 @@ class SettingsViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @objc private func logout() {
-        print("Clicked on logout")
-        print(UserDefaultsHelper.manager.getAddress()!)
-    }
     
 }
+extension SettingsViewController: AuthUserServiceDelegate {
+    @objc private func logout() {
+        print("Clicked on logout")
+        AuthUserService.manager.signOut()
+    }
+    func didSignOut(_ authUserService: AuthUserService) {
+        print("Signed Out")
+    }
+}
+
