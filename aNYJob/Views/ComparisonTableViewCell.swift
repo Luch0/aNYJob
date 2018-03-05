@@ -11,6 +11,14 @@ import SnapKit
 
 class ComparisonTableViewCell: UITableViewCell {
 
+    lazy public var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowOffset = CGSize(width: 1, height: 2)
+        return view
+    }()
+    
     //title description
     lazy var jobNameLabel: UILabel = {
         let lb = UILabel()
@@ -60,35 +68,42 @@ class ComparisonTableViewCell: UITableViewCell {
     }
     
     private func setupAndConstrainObjects(){
-        self.addSubview(jobNameLabel)
-        self.addSubview(agencyNameLabel)
-        self.addSubview(salaryLabel)
-        self.addSubview(workLocationLabel)
+        addSubview(containerView)
+        containerView.addSubview(jobNameLabel)
+        containerView.addSubview(agencyNameLabel)
+        containerView.addSubview(salaryLabel)
+        containerView.addSubview(workLocationLabel)
         
+        containerView.snp.makeConstraints { (make) in
+            make.top.equalTo(snp.top).offset(5)
+            make.leading.equalTo(snp.leading).offset(3)
+            make.trailing.equalTo(snp.trailing).offset(-3)
+            make.bottom.equalTo(snp.bottom).offset(-5)
+        }
         
         jobNameLabel.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(self.snp.width).multipliedBy(0.7)
-            make.top.equalTo(self.snp.top)
-            make.leading.equalTo(self.snp.leading)
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.7)
+            make.top.equalTo(containerView.snp.top)
+            make.leading.equalTo(containerView.snp.leading)
         }
         agencyNameLabel.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(self.snp.width).multipliedBy(0.6)
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.6)
             make.top.equalTo(jobNameLabel.snp.bottom)
-            make.bottom.equalTo(self.snp.bottom)
-            make.leading.equalTo(self.snp.leading)
+            make.bottom.equalTo(containerView.snp.bottom)
+            make.leading.equalTo(containerView.snp.leading)
             //make.trailing.equalTo(self.snp.trailing)
         }
         salaryLabel.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(self.snp.width).multipliedBy(0.3)
-            make.top.equalTo(self.snp.top)
-            make.trailing.equalTo(self.snp.trailing)
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.3)
+            make.top.equalTo(containerView.snp.top)
+            make.trailing.equalTo(containerView.snp.trailing)
         }
         workLocationLabel.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(self.snp.width).multipliedBy(0.4)
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.4)
             make.top.equalTo(salaryLabel.snp.bottom)
-            make.bottom.equalTo(self.snp.bottom)
+            make.bottom.equalTo(containerView.snp.bottom)
             //make.leading.equalTo(agencyNameLabel.snp.trailing)
-            make.trailing.equalTo(self.snp.trailing)
+            make.trailing.equalTo(containerView.snp.trailing)
         }
     }
 }
