@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import SnapKit
 
 class EmptyStateView: UIView {
 
     lazy var emptyLabel: UILabel = {
         let label = UILabel()
         Stylesheet.Objects.Labels.Regular.style(label: label)
-        label.font = UIFont(name: "Helvetica Neue", size: 30.0)
+        label.font = UIFont(name: "Helvetica Neue", size: 20.0)
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
+    }()
+    
+    lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = #imageLiteral(resourceName: "logo2")
+        return imageView
     }()
     
     init(emptyText: String) {
@@ -37,16 +46,35 @@ class EmptyStateView: UIView {
     
     private func commonInit() {
         backgroundColor = .white
-        setUpViews()
-    }
-    
-    private func setUpViews() {
-        self.addSubview(emptyLabel)
-        
-        emptyLabel.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(self)
-            make.leading.trailing.equalTo(self).inset(20)
-        }
+        setupViews()
     }
 
+}
+
+extension EmptyStateView {
+    private func setupViews() {
+        setupLogoImageView()
+        setupEmptyLabel()
+    }
+    
+    private func setupLogoImageView() {
+        addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { (make) in
+            make.centerX.equalTo(snp.centerX)
+            make.centerY.equalTo(snp.centerY).offset(-25)
+            make.width.equalTo(snp.width).multipliedBy(0.50)
+            make.height.equalTo(logoImageView.snp.width)
+        }
+    }
+    
+    private func setupEmptyLabel() {
+        addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(snp.centerX)
+            make.top.equalTo(logoImageView.snp.bottom)
+            make.leading.equalTo(logoImageView.snp.leading)
+            make.trailing.equalTo(logoImageView.snp.trailing)
+        }
+    }
+    
 }
