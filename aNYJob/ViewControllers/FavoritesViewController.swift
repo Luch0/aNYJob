@@ -49,18 +49,11 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as! JobTableViewCell
-        
-        let aJob = jobs[indexPath.row]
-        
-        cell.jobTitleLabel.text = " \(aJob.title_code_no)"
-        cell.salaryLabel.text = "\(aJob.salary_range_from) - \(aJob.salary_range_to)"
-        cell.fieldLabel.text = " \(aJob.agency)"
-        cell.locationLabel.text = " \(aJob.work_location): \(aJob.work_location_1)"
-        cell.selectionStyle = .none
+        let job = jobs[indexPath.row]
+        cell.configureCell(job: job)
+
         return cell
-        
     }
 }
 
