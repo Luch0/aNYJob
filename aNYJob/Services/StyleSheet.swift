@@ -20,6 +20,8 @@ enum Stylesheet {
         static let Dark = UIColor(red: 0.184, green: 0.157, blue: 0.118, alpha: 1.00)
         static let RedBg = UIColor(red: 0.8471, green: 0.1608, blue: 0.1608, alpha: 1.0)
         static let Gray = UIColor.gray
+        static let LightBlue = UIColor(red: 0.306, green: 0.675, blue: 0.839, alpha: 1.00)
+        static let NYCBlue = UIColor(red: 0.267, green: 0.612, blue: 0.843, alpha: 1.00)
     }
     
     enum Fonts {
@@ -91,12 +93,12 @@ extension Stylesheet {
                     button.backgroundColor = .clear
                     button.showsTouchWhenHighlighted = true
                 case .CreateButton:
-                    button.setTitleColor(Stylesheet.Colors.Red, for: .normal)
+                    button.setTitleColor(Stylesheet.Colors.White, for: .normal)
                     button.titleLabel?.font = Stylesheet.Fonts.Bold
-                    button.backgroundColor = Stylesheet.Colors.Yellow
-                    button.layer.borderColor = (Stylesheet.Colors.Orange).cgColor
+                    button.backgroundColor = Stylesheet.Colors.LightBlue
+                    button.layer.borderColor = (Stylesheet.Colors.LightGrey).cgColor
                     button.layer.borderWidth = CGFloat(Stylesheet.BorderWidths.Buttons)
-                    button.showsTouchWhenHighlighted = true
+                    button.showsTouchWhenHighlighted = false
                 case .ClearButton:
                     button.backgroundColor = .clear
                     button.contentMode = .scaleAspectFit
