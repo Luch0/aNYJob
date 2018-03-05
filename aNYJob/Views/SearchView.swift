@@ -19,6 +19,7 @@ class SearchView: UIView {
     
     lazy public var boroughSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
+        segmentedControl.tintColor = UIColor(red: 0.949, green: 0.667, blue: 0.302, alpha: 1.00)
         segmentedControl.insertSegment(withTitle: "All", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "QNS", at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "MAN", at: 2, animated: true)
@@ -30,6 +31,7 @@ class SearchView: UIView {
     
     lazy public var jobTypeSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
+        segmentedControl.tintColor = UIColor(red: 0.949, green: 0.667, blue: 0.302, alpha: 1.00)
         segmentedControl.insertSegment(withTitle: "All", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "Full-Time", at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "Part-Time", at: 2, animated: true)

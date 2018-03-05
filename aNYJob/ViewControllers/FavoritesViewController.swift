@@ -14,7 +14,7 @@ class FavoritesViewController: UIViewController {
     var jobs = [Job]() {
         didSet {
             favoritesView.jobTableView.reloadData()
-            favoritesView.jobTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.2))
+            favoritesView.jobTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.5))
         }
     }
     
