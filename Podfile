@@ -14,6 +14,7 @@ target 'aNYJob' do
   pod 'Firebase/Storage'
   pod 'DZNEmptyDataSet'
   pod 'Charts'
+  pod 'SwiftyButton'
 
   target 'aNYJobTests' do
     inherit! :search_paths
