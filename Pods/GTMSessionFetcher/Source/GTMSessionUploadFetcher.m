@@ -79,8 +79,6 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
 
 - (NSInteger)statusCodeUnsynchronized;
 
-- (BOOL)userStoppedFetching;
-
 @end
 #endif  // !GTMSESSION_BUILD_COMBINED_SOURCES
 
@@ -140,9 +138,6 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   // is in progress.
   GTMSessionFetcher *_fetcherInFlight;
   BOOL _isSubdataGenerating;
-  BOOL _isCancelInFlight;
-
-  GTMSessionUploadFetcherCancellationHandler _cancellationHandler;
 }
 
 + (void)load {
@@ -600,18 +595,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
         return;
       }
       NSRange range = NSMakeRange((NSUInteger)offset, (NSUInteger)length);
-
-      @try {
-        resultData = [uploadData subdataWithRange:range];
-      }
-      @catch (NSException *exception) {
-        NSString *errorMessage = exception.description;
-        GTMSESSION_ASSERT_DEBUG(NO, @"%@", errorMessage);
-        response(nil,
-                 kGTMSessionUploadFetcherUnknownFileSize,
-                 [self uploadChunkUnavailableErrorWithDescription:errorMessage]);
-        return;
-      }
+      resultData = [uploadData subdataWithRange:range];
     }
     response(resultData, kGTMSessionUploadFetcherUnknownFileSize, nil);
     return;
@@ -710,16 +694,6 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
     // Fall through with the error.
   } else {
     // Successfully created an NSData by memory-mapping the file.
-    if ((NSUInteger)(offset + length) > mappedData.length) {
-      NSString *errorMessage = [NSString stringWithFormat:
-                                @"Range invalid for upload data.  offset: %lld\tlength: %lld\tdataLength: %lld\texpected UploadLength: %lld",
-                                offset, length, (long long)mappedData.length, fullUploadLength];
-      GTMSESSION_ASSERT_DEBUG(NO, @"%@", errorMessage);
-      response(nil,
-               kGTMSessionUploadFetcherUnknownFileSize,
-               [self uploadChunkUnavailableErrorWithDescription:errorMessage]);
-      return;
-    }
     if (offset > 0 || length < fullUploadLength) {
       NSRange range = NSMakeRange((NSUInteger)offset, (NSUInteger)length);
       resultData = [mappedData subdataWithRange:range];
@@ -827,23 +801,6 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
     GTMSessionMonitorSynchronized(self);
 
     return _fetcherInFlight;
-  }
-}
-
-- (void)setCancellationHandler:(GTMSessionUploadFetcherCancellationHandler GTM_NULLABLE_TYPE)
-    cancellationHandler {
-  @synchronized(self) {
-    GTMSessionMonitorSynchronized(self);
-
-    _cancellationHandler = cancellationHandler;
-  }
-}
-
-- (GTMSessionUploadFetcherCancellationHandler GTM_NULLABLE_TYPE)cancellationHandler {
-  @synchronized(self) {
-    GTMSessionMonitorSynchronized(self);
-
-    return _cancellationHandler;
   }
 }
 
@@ -1037,19 +994,16 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
     }
   }  // @synchronized(self)
 
-  [self releaseUploadAndBaseCallbacks:!self.userStoppedFetching];
+  [self releaseUploadAndBaseCallbacks];
 }
 
-- (void)releaseUploadAndBaseCallbacks:(BOOL)shouldReleaseCancellation {
+- (void)releaseUploadAndBaseCallbacks {
   @synchronized(self) {
     GTMSessionMonitorSynchronized(self);
 
     _delegateCallbackQueue = nil;
     _delegateCompletionHandler = nil;
     _uploadDataProvider = nil;
-    if (shouldReleaseCancellation) {
-      _cancellationHandler = nil;
-    }
   }
 
   // Release the base class's callbacks, too, if needed.
@@ -1069,7 +1023,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   [super stopFetchReleasingCallbacks:shouldReleaseCallbacks];
 
   if (shouldReleaseCallbacks) {
-    [self releaseUploadAndBaseCallbacks:NO];
+    [self releaseUploadAndBaseCallbacks];
   }
 }
 
@@ -1128,9 +1082,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   if (error == nil) {
     int64_t offset = [sizeReceivedHeader longLongValue];
     int64_t fullUploadLength = [self fullUploadLength];
-    if (uploadStatus == kStatusFinal ||
-        (offset >= fullUploadLength &&
-         fullUploadLength != kGTMSessionUploadFetcherUnknownFileSize)) {
+    if (offset >= fullUploadLength || uploadStatus == kStatusFinal) {
       // Handle we're done
       [self chunkFetcher:queryFetcher finishedWithData:data error:nil];
     } else {
@@ -1144,9 +1096,6 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
 }
 
 - (void)sendCancelUploadWithFetcherProperties:(NSDictionary *)props {
-  @synchronized(self) {
-    _isCancelInFlight = YES;
-  }
   GTMSessionFetcher *cancelFetcher = [self uploadFetcherWithProperties:props
                                                           isQueryFetch:YES];
   cancelFetcher.bodyData = [NSData data];
@@ -1160,13 +1109,8 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   self.fetcherInFlight = cancelFetcher;
   [cancelFetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
       self.fetcherInFlight = nil;
-      if (![self triggerCancellationHandlerForFetch:cancelFetcher data:data error:error]) {
-        if (error) {
-          GTMSESSION_LOG_DEBUG(@"cancelFetcher %@", error);
-        }
-      }
-      @synchronized(self) {
-        self->_isCancelInFlight = NO;
+      if (error) {
+        GTMSESSION_LOG_DEBUG(@"cancelFetcher %@", error);
       }
   }];
 }
@@ -1213,7 +1157,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
 
         // dont allow the updating of fileLength for uploads not using a data provider as they
         // should know the file length before the upload starts.
-        if (self->_uploadDataProvider != nil && uploadFileLength > 0) {
+        if (_uploadDataProvider != nil && uploadFileLength > 0) {
           [self setUploadFileLength:uploadFileLength];
           // Update the command and content-length headers if this is the last chunk to be sent.
           if (offset + chunkSize >= uploadFileLength) {
@@ -1461,7 +1405,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
     BOOL isFinalStatus = (uploadStatus == kStatusFinal);
     #pragma unused(hasUploadAllData,isFinalStatus)
     GTMSESSION_ASSERT_DEBUG(hasUploadAllData == isFinalStatus || !hasKnownChunkSize,
-                            @"uploadStatus:%@  newOffset:%lld (%lld + %lld)  fullUploadLength:%lld"
+                            @"uploadStatus:%@  newOffset:%zd (%lld + %zd)  fullUploadLength:%lld"
                             @" chunkFetcher:%@ requestHeaders:%@ responseHeaders:%@",
                             [responseHeaders objectForKey:kGTMSessionHeaderXGoogUploadStatus],
                             newOffset, self.currentOffset, previousContentLength,
@@ -1575,7 +1519,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
 
   // Standard granularity for Google uploads is 256K.
   NSString *chunkGranularityHeader =
-      [responseHeaders objectForKey:kGTMSessionHeaderXGoogUploadChunkGranularity];
+      [responseHeaders objectForKey:@"X-Goog-Upload-Chunk-Granularity"];
   self.uploadGranularity = chunkGranularityHeader.longLongValue;
 }
 
@@ -1628,36 +1572,9 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   if (self.uploadLocationURL) {
     [self sendCancelUploadWithFetcherProperties:[self properties]];
     self.uploadLocationURL = nil;
-  } else {
-    [self invokeOnCallbackQueue:self.callbackQueue
-               afterUserStopped:YES
-                          block:^{
-      // Repeated calls to stopFetching may cause this path to be reached despite having sent a real
-      // cancel request, check here to ensure that the cancellation handler invocation which fires
-      // will definitely be for the real request sent previously.
-      @synchronized(self) {
-        if (self->_isCancelInFlight) {
-          return;
-        }
-      }
-      [self triggerCancellationHandlerForFetch:nil data:nil error:nil];
-    }];
   }
 
   [super stopFetching];
-}
-
-// Fires the cancellation handler, returning whether there was a handler to be fired.
-- (BOOL)triggerCancellationHandlerForFetch:(GTMSessionFetcher *)fetcher
-                                      data:(NSData *)data
-                                     error:(NSError *)error {
-  GTMSessionUploadFetcherCancellationHandler handler = self.cancellationHandler;
-  if (handler) {
-    handler(fetcher, data, error);
-    self.cancellationHandler = nil;
-    return YES;
-  }
-  return NO;
 }
 
 #pragma mark -
