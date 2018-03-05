@@ -18,6 +18,12 @@ class ComparisonViewController: UIViewController {
         }
     }
     
+    var sortedArray = [BaseSalary]() {
+        didSet {
+            comparisonView.updateBarChart(with: sortedArray)
+        }
+    }
+    
     var job: Job
     
     let comparisonView = ComparisonView()
@@ -26,10 +32,20 @@ class ComparisonViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loadBaseSalaries()
+        configureNavBar()
         // Delegates
         comparisonView.comparisonTableView.dataSource = self
         comparisonView.comparisonTableView.delegate = self
         comparisonView.barChart.delegate = self
+    }
+    
+    private func configureNavBar() {
+        let sortButton = UIBarButtonItem(image: #imageLiteral(resourceName: "decline"), style: .plain, target: self, action: #selector(sortButtonTapped))
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    @objc private func sortButtonTapped() {
+        sortedArray = sampleArray[0...50].sorted(){ Double($0.base_salary)! > Double($1.base_salary)! }
     }
     
     init(job: Job) {

@@ -32,10 +32,10 @@ class ComparisonView: UIView {
             barEntries.append(dataEntry)
         }
         let dataSet = BarChartDataSet(values: barEntries, label: "Salaries")
-        dataSet.colors = ChartColorTemplates.colorful()
+        dataSet.colors = ChartColorTemplates.material()
         let data = BarChartData(dataSets: [dataSet])
         barChart.data = data
-        barChart.chartDescription?.text = "Description goes here"
+        barChart.chartDescription?.text = ""
         barChart.notifyDataSetChanged()
     }
     

@@ -10,6 +10,7 @@
 //https://data.cityofnewyork.us/resource/swhp-yxa4.json?$where=business_title%20like%20%27%25Cle%25%27
 
 import UIKit
+import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
     
@@ -65,6 +66,9 @@ class SearchViewController: UIViewController {
         loadAllJobs()
         configureNavBar()
         configureSearchView()
+        searchView.tableView.emptyDataSetSource = self
+        searchView.tableView.emptyDataSetDelegate = self
+        searchView.tableView.separatorStyle = .none
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -109,7 +113,7 @@ class SearchViewController: UIViewController {
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("queens") }
             print("Queens")
         case 2:
-            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("manhattan") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("manhattan")  || $0.work_location.lowercased().contains("new york") }
             print("Manhattan")
         case 3:
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("brooklyn") }
@@ -118,7 +122,7 @@ class SearchViewController: UIViewController {
             self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("bronx") }
             print("Bronx")
         case 5:
-            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("staten island") }
+            self.filteredByBoroughArr = self.allJobs.filter{ $0.work_location.lowercased().contains("s.i.") }
             print("Staten Island")
         default:
             print("Error")
@@ -173,6 +177,17 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchterm = searchBar.text!
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchterm = searchBar.text!
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension SearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+       return #imageLiteral(resourceName: "logo2")
     }
 }
 
