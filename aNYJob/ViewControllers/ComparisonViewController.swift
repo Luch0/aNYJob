@@ -77,7 +77,7 @@ extension ComparisonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComparisonCell", for: indexPath) as! ComparisonTableViewCell
-        
+        cell.isUserInteractionEnabled = false
         let baseSalary = salaries[indexPath.row]
         
         cell.jobNameLabel.text = "\(baseSalary.title_description)"
@@ -101,6 +101,6 @@ extension ComparisonViewController: UITableViewDelegate {
 
 extension ComparisonViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        
+        comparisonView.comparisonTableView.scrollToRow(at: IndexPath.init(row: Int(entry.x) - 1, section: 0) , at: .top, animated: true)
     }
 }
