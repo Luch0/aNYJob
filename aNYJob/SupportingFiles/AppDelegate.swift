@@ -7,19 +7,40 @@
 //
 
 import UIKit
-import CoreData
 import Firebase
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = UIColor(red: 0.949, green: 0.667, blue: 0.302, alpha: 1.00)
+        
+        let searchViewController = SearchViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        
+        let favoritesViewController = FavoritesViewController()
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+        favoritesNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
+        
+        let settingsVC = SettingsViewController()
+        let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "settings"), tag: 2)
+        
+        tabBarController.setViewControllers([searchNavigationController, favoritesNavigationController, settingsNavigationController], animated: true)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         
         return true
     }
