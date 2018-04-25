@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barTintColor = UIColor(red: 0.949, green: 0.667, blue: 0.302, alpha: 1.00)
