@@ -38,7 +38,7 @@ extension DatabaseService {
     
     public func addSavedJob(_ jobToSave: Job) {
         //1. find ref
-        let ref = savedJobsRef.child(jobToSave.job_id)
+        let ref = savedJobsRef.child((AuthUserService.manager.getCurrentUser()?.uid)!).child(jobToSave.job_id)
         
         //2. call set value with completion handler
         ref.setValue(["additional_information": jobToSave.additional_information,
