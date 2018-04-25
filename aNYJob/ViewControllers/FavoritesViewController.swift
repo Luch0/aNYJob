@@ -31,7 +31,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DatabaseService.manager.getAllSavedJobs { (jobs) in
+        DatabaseService.manager.getSavedJobs { (jobs) in
             if let jobs = jobs {
                 self.jobs = jobs
             }
