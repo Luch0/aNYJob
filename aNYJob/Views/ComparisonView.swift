@@ -27,7 +27,7 @@ class ComparisonView: UIView {
     
     public func updateBarChart(with array: [BaseSalary]) {
         var barEntries = [BarChartDataEntry]()
-        for i in 0...50 {
+        for i in 0..<barEntries.count {
             let dataEntry = BarChartDataEntry(x: Double(i+1), y: Double(array[i].base_salary)!)
             barEntries.append(dataEntry)
         }

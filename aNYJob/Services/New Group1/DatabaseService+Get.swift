@@ -29,8 +29,8 @@ extension DatabaseService {
         }
     }
  
-    func getAllSavedJobs(completion: @escaping ([Job]?) -> Void) {
-        savedJobsRef.observeSingleEvent(of: .value) { (dataSnapshot) in
+    func getSavedJobs(completion: @escaping ([Job]?) -> Void) {
+        savedJobsRef.child((AuthUserService.manager.getCurrentUser()?.uid)!).observeSingleEvent(of: .value) { (dataSnapshot) in
             guard let arrayOfAllSavedJobsSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 print("could not get children snapshots")
                 completion(nil)
