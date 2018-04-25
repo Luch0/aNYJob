@@ -11,26 +11,21 @@ import XCTest
 
 class aNYJobTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testJobAPIConnection() {
+        let jobResultsExpectation = XCTestExpectation(description: "Jobs results exist")
+        //start network request
+        var jobs = [Job]()
+        JobsAPIClient.manager.getAllOnlineJobs(completionHandler: { jobs = $0 ; jobResultsExpectation.fulfill()}, errorHandler: {print($0)})
+        //wait 10 seconds for results because it's async
+        wait(for: [jobResultsExpectation], timeout: 10)
+        XCTAssertGreaterThan(jobs.count, 0, "Jobs are coming back from NYC Open Data")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testBaseSalaryAPIConnection() {
+        let salaryResultsExpectation = XCTestExpectation(description: "Salary results exist")
+        var salaries = [BaseSalary]()
+        BaseSalaryAPIClient.manager.getOnlineBaseSlalaries(with: "Police", completionHandler: { salaries = $0 ; salaryResultsExpectation.fulfill()}, errorHandler: {print($0)})
+        wait(for: [salaryResultsExpectation], timeout: 10)
+        XCTAssertGreaterThan(salaries.count, 0, "Salaries are coming back from NYC Open Data")
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
